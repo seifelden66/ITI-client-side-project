@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/product.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <span class="logo" style="font-size: 30px; color: var(--blue-color); font-weight: 600;">Shop Logo</span>
+            <a href="cart" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="login" class="login">Login</a>
+            <form class="search">
+                <input type="text" placeholder="Search name">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </nav>
+        <div class="header-title">
+            <h1>Discover New Collection</h1>
+            <span class="line"></span>
+            <p>We have a bunch collection for you! Let's go explore.</p>
+            <p></span>Discound up to <span>25%</span></p>
+            <a href="#products">Start shopping</a>
+        </div>
+    </header>
+    <div>
+        <ul>
+            <li><a href="product.html">All</a></li>
+            <li><a href="">Category</a></li>
+            <li><a href="">Category</a></li>
+            <li><a href="">Category</a></li>
+        </ul>
+    </div>
+    <main>
+        <div class="filter">
+            <span>View:</span>
+            <button><i class="fas fa-th-large"></i></button>
+            <button><i class="fas fa-list"></i></button>
+            <select name="categories" id="categories" onclick="filterByCategory(this.value)">
+                <option value="">All Products</option>
+            </select>
+        </div>
+        <div class="cards-container" id="products">
+            <!-- <div class="card">
+                <img src="assets/images/2.jpg">
+                <h3>Mobile phone</h3>
+                <div class="card-footer">
+                    <div class="rate">
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="far fa-star"></i></span>
+                    </div>
+                    <span>$ 200</span>
+                </div>
+            </div> -->
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/8a0c3145f8.js" crossorigin="anonymous"></script>
+    <script src="assets/js/product.js"></script>
+</body>
+</html>
