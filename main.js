@@ -33,3 +33,13 @@ btn1.addEventListener("click",()=>{
 })
 
 // =================================================================
+// user data
+
+const userData = JSON.parse(sessionStorage.getItem('userData'));
+const usernameContainer = document.getElementById('usernameContainer');
+
+if (userData && userData.username) {
+    usernameContainer.textContent = `Hello, ${userData.username}`;
+} else {
+    usernameContainer.textContent = 'Hello user please sign in';
+}
