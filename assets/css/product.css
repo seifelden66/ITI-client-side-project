@@ -126,12 +126,18 @@ main{
     display: flex;
     gap: 20px;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
     border-bottom: 1px solid var(--gray-color);
     padding-bottom: 10px;
     color: var(--gray-color-dark);
     font-size: 1.5rem;
     margin-bottom: 30px;
+}
+.filter div{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
 }
 .filter button{
     color: var(--gray-color-dark);
@@ -140,6 +146,22 @@ main{
     border: 1px solid var(--gray-color);
     outline: none;
     background-color: transparent;
+}
+.filter select{
+    border: 1px solid var(--gray-color);
+    padding: 7px 26px 7px 9px;
+    color: var(--gray-color-dark);
+    font-size: 1rem;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("../images/select-arrow.png");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 1rem;
+    background-color: #fff;
+    width: 200px;
+    min-width: auto;
 }
 .cards-container{
     display: flex;
