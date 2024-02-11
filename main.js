@@ -2,10 +2,10 @@ let heroImg = document.querySelector(".hero-img")
 let btn1 = document.querySelector(".btn1")
 let btn2 = document.querySelector(".btn2")
 let imgs = [
-"imgs/hero.jpg",
+"imgs/1.jpg",
 // "imgs/hero2.png",
-"imgs/mac.jpeg",
-"imgs/mac.webp"
+"imgs/2.png",
+"imgs/3.png"
 ]
 let index = 0;
 

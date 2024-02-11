@@ -28,7 +28,7 @@ async function getProductByCategory(category) {
 async function searchProductName(productName) {
     const response = await fetch(`https://dummyjson.com/products/search?q=${productName}`);
     let data = await response.json();
-    products = data.products;
+    products = data.products.filter(p => p.title.toLowerCase().includes(productName.toLowerCase()));
     createProductsCard();
 }
 function filterByCategory(category){
@@ -84,6 +84,14 @@ function createCategoriesList() {
         option.innerHTML = categories[i];
         option.value = categories[i];
         select.append(option);
+    }
+}
+function search(){
+    var searchInput = document.querySelector("#search");
+    if(searchInput.value){
+        searchProductName(searchInput.value);
+        var productContainer = document.querySelector("#products");
+        window.scrollTo(0,productContainer.offsetTop);
     }
 }
 getAllCategories();

@@ -1,5 +1,4 @@
-:root{
-    /* --blue-color: #222f7d; */
+/* :root{
     --white-color: #fff;
     --black-color: #000;
     --blue-color: #1b3a8f;
@@ -26,9 +25,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
+}*/
 .search{
-    width: 70%;
+    width: 45vw;
     min-width: 180px;
     order: 2;
 }
@@ -37,7 +36,7 @@ nav {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     color: var(--gray-color-dark);
-    background-color: transparent;
+    background-color: var(--white-color);
     border-right: 0;
     width: 40%;
     min-width: 150px;
@@ -46,27 +45,15 @@ nav {
 }
 .search button{
     border: 1px solid var(--gray-color);
+    border-radius: 0;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     color: var(--gray-color-dark);
-    background-color: transparent;
+    background-color: var(--white-color);
     border-left: 0;
     padding: 10px 8px;
     outline: none;
     margin-left: -5px;
-}
-nav .cart{
-    color: var(--blue-color);
-    display: none;
-}
-nav .login{
-    order: 3;
-    border-radius: 5px;
-    background-color: var(--orange-color);
-    color: var(--white-color);
-    padding: 8px 10px;
-    font-size: 20px;
-    font-weight: 600;
 }
 .header-title{
     display: flex;
@@ -74,10 +61,11 @@ nav .login{
     align-items: flex-start;
     justify-content: center;
     height: 100%;
+    color: var(--black-color);
 }
 .header-title h1{
     margin-bottom: 20px;
-    font-size: 50px;
+    font-size: 3rem;
 }
 .header-title .line{
     display: inline-block;
@@ -102,36 +90,26 @@ nav .login{
     margin-top: 20px;
     font-size: 25px;
 }
-ul{
-    background-color: var(--blue-color);
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    /* width: calc(100%-100px); */
-    /* padding: 0 50px; */
-}
-ul li{
-    padding: 15px 5px;
-}
-ul a{
-    padding: 15px 5px;
-    color: var(--white-color);
-    font-size: 1.5rem;
-}
 main{
-    margin: 30px 50px;
+    width: 90%;
+    margin: 30px auto;
 }
 .filter{
     display: flex;
     gap: 20px;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
     border-bottom: 1px solid var(--gray-color);
     padding-bottom: 10px;
     color: var(--gray-color-dark);
     font-size: 1.5rem;
     margin-bottom: 30px;
+}
+.filter div{
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
 }
 .filter button{
     color: var(--gray-color-dark);
@@ -140,6 +118,23 @@ main{
     border: 1px solid var(--gray-color);
     outline: none;
     background-color: transparent;
+    border-radius: 0;
+}
+.filter select{
+    border: 1px solid var(--gray-color);
+    padding: 7px 26px 7px 9px;
+    color: var(--gray-color-dark);
+    font-size: 1rem;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("../images/select-arrow.png");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 1rem;
+    background-color: #fff;
+    width: 200px;
+    min-width: auto;
 }
 .cards-container{
     display: flex;
