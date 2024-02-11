@@ -1,31 +1,3 @@
-/* :root{
-    --white-color: #fff;
-    --black-color: #000;
-    --blue-color: #1b3a8f;
-    --orange-color: #fba104;
-    --gray-color: #ccc;
-    --gray-color-dark: #777;
-}
-*{
-    margin: 0;
-    padding: 0;
-}
-a{
-    text-decoration: none;
-}
-header{
-    background-image: url("../images/header.png");
-    background-size: cover;
-    width: calc(100% - 100px);
-    height: 520px;
-    padding: 20px 50px;
-}
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}*/
 .search{
     width: 45vw;
     min-width: 180px;
