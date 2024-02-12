@@ -67,7 +67,7 @@ section.hero-sec {
 body {
     font-family: 'Roboto', sans-serif;
     background: var(--light-white);
-    font-size: clamp(16px, 4vw, 24px);
+    font-size: clamp(12px, 2vw, 18px);
 
 }
 
