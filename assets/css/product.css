@@ -35,9 +35,22 @@
     height: 100%;
     color: var(--black-color);
 }
+@media (max-width:768px) {
+    .hero-section{
+        height: 400px;
+    }
+    .header-title{
+        text-align: center;
+        align-items: center;
+        
+    }
+    .right{
+        display: none;
+    }
+}
 .header-title h1{
     margin-bottom: 20px;
-    font-size: 3rem;
+    /* font-size: 3rem; */
 }
 .header-title .line{
     display: inline-block;
@@ -46,13 +59,10 @@
     border-top: 1px solid var(--gray-color-dark);
     margin-bottom: 20px;
 }
-.header-title p{
-    color: var(--gray-color-dark);
-    font-size: 20px;
-}
+
 .header-title p >span{
     color: var(--orange-color);
-    font-size: 35px;
+    /* font-size: 35px; */
 }
 .header-title a{
     padding: 10px 15px;
@@ -60,7 +70,7 @@
     border-radius: 5px;
     color: var(--black-color);
     margin-top: 20px;
-    font-size: 25px;
+    /* font-size: 25px; */
 }
 main{
     width: 90%;
@@ -74,7 +84,7 @@ main{
     border-bottom: 1px solid var(--gray-color);
     padding-bottom: 10px;
     color: var(--gray-color-dark);
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     margin-bottom: 30px;
 }
 .filter div{
@@ -85,7 +95,7 @@ main{
 }
 .filter button{
     color: var(--gray-color-dark);
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     padding: 5px 7px;
     border: 1px solid var(--gray-color);
     outline: none;
@@ -96,7 +106,7 @@ main{
     border: 1px solid var(--gray-color);
     padding: 7px 26px 7px 9px;
     color: var(--gray-color-dark);
-    font-size: 1rem;
+    /* font-size: 1rem; */
     outline: none;
     -webkit-appearance: none;
     appearance: none;
@@ -112,7 +122,7 @@ main{
     border: 1px solid var(--gray-color);
     padding: 7px 26px 7px 9px;
     color: var(--gray-color-dark);
-    font-size: 1rem;
+    /* font-size: 1rem; */
     outline: none;
     -webkit-appearance: none;
     appearance: none;
@@ -142,7 +152,7 @@ main{
     height: 65%;
 }
 .card h3{
-    font-size: 17px;
+    /* font-size: 17px; */
     color: var(--blue-color);
     margin: 8px 0;
 }
@@ -150,7 +160,7 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 15px;
+    /* font-size: 15px; */
 }
 .card-footer >span{
     font-weight: 600;
