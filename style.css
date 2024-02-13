@@ -12,7 +12,7 @@
     --dark-600: #42464f;
     --dark-500: #a8b3cf;
     --dark-400: #ebebeb;
-    --white-color: #fff;
+    --white-color: #f6f5f5;
     --blue-color: #000;
     --blue-color: #1b3a8f;
     --orange-color: #fba104;
@@ -124,9 +124,9 @@ img {
 
     .search {
         input {
-            color: var(--light-white);
-            background: rgba(195, 241, 195, 0.226);
-            border-radius: 10px;
+            color: var(--dark-800);
+            background: var(--white-color);
+            
             padding: 10px;
             border: none;
         }
