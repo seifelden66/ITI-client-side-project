@@ -125,7 +125,7 @@ img {
     .search {
         input {
             color: var(--light-white);
-            background:var(--dark-800);
+            background: rgba(195, 241, 195, 0.226);
             border-radius: 10px;
             padding: 10px;
             border: none;
