@@ -1,36 +1,49 @@
-let slideImg = document.querySelector(".slide-img")
-let next = document.querySelector(".btn-next")
-let back = document.querySelector(".btn-back")
+let heroImg = document.querySelector(".hero-img")
+let btn1 = document.querySelector(".btn1")
+let btn2 = document.querySelector(".btn2")
 let imgs = [
-    "imgs/pexels-drew-williams-3568518.jpg",
-    "imgs/slider/pexels-ave-calvar-martinez-4705121.jpg",
-    "imgs/slider/pexels-cottonbro-studio-5083212.jpg",
-    "imgs/slider/pexels-jessica-lewis-🦋-thepaintedsquare-3361489.jpg",
-    "imgs/slider/pexels-noah-erickson-404280.jpg",
-    "imgs/slider/pexels-tyler-lastovich-1275929.jpg"
+    "imgs/1.jpg",
+    // "imgs/hero2.png",
+    "imgs/2.png",
+    "imgs/3.png"
 ]
+let index = 0;
 
-let index=0
-next.addEventListener("click",()=>{
-    if(index < imgs.length-1){
-        index++ 
-        slideImg.src = imgs [index]
-        console.log(index);
 
-    }else{
-        console.log("hello");
-        index= 0
-        slideImg.src = imgs [index]
+btn2.addEventListener("click", () => {
+    if (index < imgs.length - 1) {
+        index++
+        heroImg.src = imgs[index]
+
+    } else {
+        index = 0
+        heroImg.src = imgs[index]
+
     }
 })
-
-back.addEventListener("click",()=>{
-    if(index>0){
+btn1.addEventListener("click", () => {
+    if (index > 0) {
         index--
-        slideImg.src = imgs[index]
-    }else{
-        index = imgs.length-1
-        slideImg.src = imgs[index]
+        heroImg.src = imgs[index]
+    } else {
+        index = imgs.length - 1
+        heroImg.src = imgs[index]
 
     }
 })
+
+// =================================================================
+// user data
+
+const userData = JSON.parse(localStorage.getItem('userData'));
+const usernameContainer = document.getElementById('usernameContainer');
+const isLogged = document.getElementById('isLoged')
+
+if (userData && userData.username) {
+    usernameContainer.textContent = `Hello, ${userData.username}`;
+    isLogged.innerHTML = ` logout <i class="fa-solid fa-right-from-bracket"></i>`
+
+} else {
+    usernameContainer.textContent = 'Hello user';
+    isLogged.innerHTML = ` login <i class="fa-solid fa-right-to-bracket"></i>`
+}
