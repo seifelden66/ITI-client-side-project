@@ -52,7 +52,7 @@ function createProductsCard() {
             `
         }
         cards += `
-            <a class="card" href="">
+            <a onclick="saveId(${products[i].id})" class="card" href="Single-Prod.html">
             <img src="${products[i].images[0]}">
             <h3>${products[i].title}</h3>
             <div class="card-footer">
@@ -84,5 +84,13 @@ function search(){
         window.scrollTo(0,productContainer.offsetTop);
     }
 }
+
+function saveId(id){
+    localStorage.setItem("ProducID",JSON.stringify(id))
+
+}
+
 getAllCategories();
 getAllPrducts();
+
+
