@@ -53,12 +53,13 @@ function createProductsCard() {
         }
         cards += `
             <a class="card" href="">
-                <img src="${products[i].images[0]}">
-                <h3>${products[i].title}</h3>
-                <div class="card-footer">
-                    <div class="rate">${rate}</div>
-                    <span>$ ${products[i].price}</span>
-                </div>
+            <img src="${products[i].images[0]}">
+            <h3>${products[i].title}</h3>
+            <div class="card-footer">
+            <div class="rate">${rate}</div>
+            <span>$ ${products[i].price}</span>
+            </div>
+            <button class="cart-icon" onclick="">Add to cart</button>
             </a>
         `;
     }

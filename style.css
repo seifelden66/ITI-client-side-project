@@ -3,8 +3,6 @@
 
 :root {
     --light-white: #f7f7f7;
-    ;
-    --blue-color: #000;
     --dark-green: #2b4d41;
     --primary: #00bfa5;
     --dark-900: #0e1217;
@@ -14,7 +12,7 @@
     --dark-500: #a8b3cf;
     --dark-400: #ebebeb;
     --white-color: #fff;
-    --blue-color: #000;
+    --black-color: #000;
     --blue-color: #1b3a8f;
     --orange-color: #fba104;
     --gray-color: #ccc;
