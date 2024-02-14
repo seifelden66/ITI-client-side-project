@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Login</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://kit.fontawesome.com/1cb4da4ca1.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="container">
+            <form id="form" action="" method="post">
+                <div class="error-container">
+                    <!-- <i class="fa-solid fa-xmark"></i> -->
+                    <!-- <i class="fa-solid fa-triangle-exclamation"></i> -->
+                    <span id="error-message"></span>
+                    <i class="xmark fa-regular fa-circle-xmark"></i>
+                </div>
+                <div class="input-field">
+                    <label for="username">username</label>
+                    <input type="text" id="username" name="username" />
+                    <small>can't be blank</small>
+                </div>
+
+                <div class="input-field">
+                    <label for="password">password</label>
+                    <input type="password" id="password" name="password" />
+                    <small>username is invalid</small>
+                </div>
+
+                <input class="btn" type="submit" value="Login" />
+            </form>
+
+           
+           <script src="script1.js"></script>
+        </div>
+    </body>
+</html>
