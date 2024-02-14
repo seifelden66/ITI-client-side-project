@@ -41,7 +41,6 @@ function filterByCategory(category){
     }
 }
 function createProductsCard() {
-    console.log(products);
     let cardsContainer = document.querySelector(".cards-container");
     let cards = "";
     for(let i = 0; i < products.length; i++){
@@ -65,7 +64,6 @@ function createProductsCard() {
     cardsContainer.innerHTML = cards;
 }
 function createCategoriesList() {
-    console.log(categories);
     let select = document.querySelector("#categories");
     let options = "";
     for(let i = 0; i<categories.length; i++){

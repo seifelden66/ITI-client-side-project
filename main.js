@@ -36,14 +36,46 @@ btn1.addEventListener("click", () => {
 // user data
 
 const userData = JSON.parse(localStorage.getItem('userData'));
-const usernameContainer = document.getElementById('usernameContainer');
-const isLogged = document.getElementById('isLoged')
+const isLogged = document.getElementById('userImage')
+const drpdwn = document.getElementById('drpdwn')
 
-if (userData && userData.username) {
-    usernameContainer.textContent = `Hello, ${userData.username}`;
-    isLogged.innerHTML = ` logout <i class="fa-solid fa-right-from-bracket"></i>`
+const token = localStorage.getItem('token');
+if (token) {
+    fetch('https://dummyjson.com/auth/me', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(token)
 
+            isLogged.innerHTML = `
+            <img src="${data.image}"></img>
+            <i class="fa-solid fa-chevron-down"></i>
+    `;
+            drpdwn.innerHTML = `
+            <a href="#">${data.firstName}</a>
+            <a href="#">logout</a>
+            `
+        })
+        .catch(error => {
+            console.error(error);
+        });
 } else {
-    usernameContainer.textContent = 'Hello user';
-    isLogged.innerHTML = ` login <i class="fa-solid fa-right-to-bracket"></i>`
+    console.log(`hello ${token}`)
+
+    isLogged.innerHTML = `
+        <img src="/imgs/user.png"></img>
+        <i class="fa-solid fa-chevron-down"></i>
+    `
+    drpdwn.innerHTML = `
+    <a href="#">sign in</a>
+    `;
 }
