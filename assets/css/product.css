@@ -142,8 +142,21 @@ main{
     flex-wrap: wrap;
 }
 .card{
-    height: 320px;
+    height: 350px;
     width: 250px;
+}
+.card .cart-icon{
+    border: none;
+    outline: none;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    font-size: 0.7em;
+    width: 100%;
+    padding: 6px 0;
+    border-radius: 5px;
+    margin-top: 15px;
+    /* border: 2px solid var(--gray-color); */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .card img{
     border: 1px solid var(--gray-color);
@@ -152,7 +165,7 @@ main{
     height: 65%;
 }
 .card h3{
-    /* font-size: 17px; */
+    font-size: 1.2rem;
     color: var(--blue-color);
     margin: 8px 0;
 }
@@ -160,7 +173,7 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* font-size: 15px; */
+    font-size: 1rem;
 }
 .card-footer >span{
     font-weight: 600;
