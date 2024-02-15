@@ -69,7 +69,7 @@ if (token) {
             <i class="fa-solid fa-chevron-down"></i>
     `;
             drpdwn.innerHTML = `
-            <a href="#">${data.firstName}</a>
+            <a href="profile.html">${data.firstName}</a>
             <a href="#" onclick="logout()">logout</a>
             `
 
