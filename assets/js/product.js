@@ -43,27 +43,29 @@ function filterByCategory(category){
 function createProductsCard() {
     let cardsContainer = document.querySelector(".cards-container");
     let cards = "";
-    for(let i = 0; i < products.length; i++){
+    for (let i = 0; i < products.length; i++) {
         let rate = "";
-        for(let j = 1; j <= 5; j++){
+        for (let j = 1; j <= 5; j++) {
             rate += `
                 <span><i class="${j < products[i].rating ? "fas fa-star" : "far fa-star"}" aria-hidden="true"></i></span>
-            `
+            `;
         }
         cards += `
-            <a class="card" href="">
-            <img src="${products[i].images[0]}">
-            <h3>${products[i].title}</h3>
-            <div class="card-footer">
-            <div class="rate">${rate}</div>
-            <span>$ ${products[i].price}</span>
-            </div>
-            <button class="cart-icon" onclick="">Add to cart</button>
-            </a>
+            <div class="card">
+                <img src="${products[i].images[0]}">
+                <h3>${products[i].title}</h3>
+                <div class="card-footer">
+                    <div class="rate">${rate}</div>
+                    <span>$ ${products[i].price}</span>
+                </div>
+                <button class="cart-icon" onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}">Add to cart</button>
+                </div>
         `;
     }
     cardsContainer.innerHTML = cards;
 }
+
+
 function createCategoriesList() {
     let select = document.querySelector("#categories");
     let options = "";
