@@ -89,7 +89,7 @@ async function loginAndRedirect(username, password){
         console.log(token);
         localStorage.setItem('token', token)
         //redirect
-        location.href='profile.html';
+        location.href='/';
     }
     catch(error){
         console.error(error);
