@@ -73,85 +73,81 @@ function createProductsCard() {
 
             carouselData = `
             <div class="owl-carousel owl-theme">
-            <div class="item">
-            
+            <div class="item">            
             <img src=${products[1].images[0]}>
 
-            <div class= "carsule-cont">
             
+            <div class ="carsule-cont">
             <h4> prod title:${products[1].title}</h4>
             <h4> prod category: ${products[1].category}</h4>
             <h4> prod rating:<span><i class="fa-solid fa-star star"></i></span>  ${products[1].rating} /5 </h4>
-            
-            </div>
             </div>
 
 
-            <div class="item">
-            
+            </div>
+
+
+       
+            <div class="item">            
             <img src=${products[2].images[0]}>
 
-            <div class= "carsule-cont">
-            
+
+            <div class ="carsule-cont">
             <h4> prod title:${products[2].title}</h4>
             <h4> prod category: ${products[2].category}</h4>
             <h4> prod rating:<span><i class="fa-solid fa-star star"></i></span>  ${products[2].rating} /5 </h4>
-            
-            </div>
-
             </div>
 
 
+            </div>
 
 
-
-            <div class="item">
-            
+       
+            <div class="item">            
             <img src=${products[3].images[0]}>
 
-            <div class= "carsule-cont">
-            
+
+            <div class ="carsule-cont">
             <h4> prod title:${products[3].title}</h4>
             <h4> prod category: ${products[3].category}</h4>
             <h4> prod rating:<span><i class="fa-solid fa-star star"></i></span>  ${products[3].rating} /5 </h4>
-            
-            </div>
             </div>
 
 
+            </div>
 
 
-
-            <div class="item">
-            
+       
+            <div class="item">            
             <img src=${products[4].images[0]}>
 
-            <div class= "carsule-cont">
-            
+
+            <div class ="carsule-cont">
             <h4> prod title:${products[4].title}</h4>
             <h4> prod category: ${products[4].category}</h4>
             <h4> prod rating:<span><i class="fa-solid fa-star star"></i></span>  ${products[4].rating} /5 </h4>
-            
-            </div>
             </div>
 
 
+            </div>
 
 
-            <div class="item">
-            
+       
+            <div class="item">            
             <img src=${products[5].images[0]}>
 
-            <div class= "carsule-cont">
-            
+
+            <div class ="carsule-cont">
             <h4> prod title:${products[5].title}</h4>
             <h4> prod category: ${products[5].category}</h4>
             <h4> prod rating:<span><i class="fa-solid fa-star star"></i></span>  ${products[5].rating} /5 </h4>
-            
             </div>
+
+
             </div>
-      
-        
+
+
+       
             </div>
         
             `
@@ -162,7 +158,7 @@ function createProductsCard() {
             
     $('.owl-carousel').owlCarousel({
         loop:true,
-        margin:40,
+        margin:35,
         nav:false,
         autplay:true,
         autplayTimeout:1000,

@@ -36,14 +36,95 @@ btn1.addEventListener("click", () => {
 // user data
 
 const userData = JSON.parse(localStorage.getItem('userData'));
-const usernameContainer = document.getElementById('usernameContainer');
-const isLogged = document.getElementById('isLoged')
+const isLogged = document.getElementById('userImage')
+const drpdwn = document.getElementById('drpdwn')
+let cartItems = document.getElementById('cart')
+const token = localStorage.getItem('token');
 
-if (userData && userData.username) {
-    usernameContainer.textContent = `Hello, ${userData.username}`;
-    isLogged.innerHTML = ` logout <i class="fa-solid fa-right-from-bracket"></i>`
-
-} else {
-    usernameContainer.textContent = 'Hello user';
-    isLogged.innerHTML = ` login <i class="fa-solid fa-right-to-bracket"></i>`
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userData');
+    localStorage.removeItem('cart');
+    location.reload()
 }
+
+
+if (token) {
+    fetch('https://dummyjson.com/auth/me', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        })
+        .then(data => {
+
+            isLogged.innerHTML = `
+            <img src="${data.image}"></img>
+            <i class="fa-solid fa-chevron-down"></i>
+    `;
+            drpdwn.innerHTML = `
+            <a href="#">${data.firstName}</a>
+            <a href="#" onclick="logout()">logout</a>
+            `
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
+} else {
+    isLogged.innerHTML = `
+        <img src="/imgs/user.png"></img>
+        <i class="fa-solid fa-chevron-down"></i>
+    `
+    drpdwn.innerHTML = `
+    <a href="login.html">sign in</a>
+    `;
+}
+
+
+
+// =================================================================
+//cart
+
+if (token) {
+    function addToCart(productId) {
+        let product = products.find(prod => prod.id === productId);
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (cart.some(item => item.id === productId)) {
+            alert('Product is already in the cart');
+        } else {
+            alert('product added successfully!')
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItemCount();
+
+        }
+    }
+
+
+    function getCart() {
+        return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+
+    function displayCartItemCount() {
+        let cart = getCart();
+        let cartItemCountElement = document.getElementById('cartLen');
+        if (cartItemCountElement) {
+            cartItemCountElement.textContent = cart.length.toString();
+            
+        }
+    }
+
+
+    displayCartItemCount();
+   
+
+}
+

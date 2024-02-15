@@ -65,7 +65,8 @@ section.hero-sec {
 body {
     font-family: 'Roboto', sans-serif;
     background: var(--light-white);
-    font-size: clamp(12px, 2vw, 18px);
+    font-size: clamp(10px, 1.5vw, 16px);
+
 
 }
 
@@ -123,9 +124,9 @@ img {
 
     .search {
         input {
-            color: var(--light-white);
-            background:var(--dark-800);
-            border-radius: 10px;
+            color: var(--dark-800);
+            background: var(--white-color);
+
             padding: 10px;
             border: none;
         }
@@ -134,13 +135,50 @@ img {
     .pages {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 15px;
     }
 }
-@media (max-width:768px) {
-    .head2>.cont{
+.dropdown {
+    position: relative;
+}
 
-        .pages{
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--blue-color);
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.fa-angle-down {
+    margin-left: 5px;
+}
+@media (max-width:768px) {
+    .head2>.cont {
+
+        .pages {
             display: none;
         }
     }
@@ -151,7 +189,7 @@ img {
         background: var(--dark-600);
         cursor: pointer;
         font-weight: 600;
-        color:var(--light-white);
+        color: var(--light-white);
         background: var(--orange-color);
     }
 
@@ -174,21 +212,36 @@ img {
 
 .cart {
     position: relative;
-
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    i{
+        z-index: 99;
+    }
     .num {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
         position: absolute;
-        top: -10px;
-        right: -10px;
+        background-color: red;
+        top: -15px;
+        right: -15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
     }
 }
 
 
-
+.user{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 30px;
+}
 /* ============================================================ */
 .hero-section {
     height: 60vh;

@@ -1,0 +1,114 @@
+:root {
+    --dark: #2d2d30;
+    --darker: #252526;
+    --darkest: #1e1e1e;
+    --primary: #639c72;
+    --gray: #3e3e42;
+    --offwhite: #fafafa;
+
+    background-color: #f7f7f7;
+    color: #555;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#form{
+    background-color: #fff;
+    box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 20%;
+    height: 40vh; 
+    padding: 30px;
+    border-radius: 0.7rem;
+}
+.input-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 10vh;
+    position: relative;
+}
+.error-container{
+    opacity: 0;
+    transition: opacity 250ms ease-in-out 0s;
+    padding: 10px;
+    background-color: #ffdddd;
+    border-radius: 0.4rem;
+    /* text-align: center; */
+    color: rgb(157, 11, 11);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+input{
+    background-color: #f7f7f7;
+    border: 1px solid #555;
+    transition: border 0.8s;
+    border-radius: 4px;
+    /* border-radius: 0.7rem; */
+    padding: 10px;
+    outline: none;
+    color: #555;
+    /* border: #f7f7f7; */
+}
+.btn{
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 0.7rem;
+    border: none;
+}
+.btn:hover{
+    background-color: #599067;
+}
+small{
+    color: red;
+    opacity: 0;
+    /* transition: opacity 0.8s; */
+    transition: opacity 250ms ease-in-out 0s;
+}
+/* _______________________________________________ */
+
+/* #table {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 2rem 0rem 0rem 0rem;
+    max-width: 1100px;
+  } */
+
+  /* .table-cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0.8em 1.2em;
+    overflow: hidden;
+    list-style-type: none;
+    outline: 1px solid #ddd;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 1px;
+    margin-left: 1px;
+     } */
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+}
+
+
+
