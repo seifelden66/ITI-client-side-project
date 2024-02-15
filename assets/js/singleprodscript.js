@@ -10,17 +10,14 @@ console.log(products);
 
 function singleProduct (products){
 let data =""
+let search = cart.find((x)=>x.id === products[id-1].id)|| []
 let container = document.querySelector(".container")
-
 for(let i =0 ; i<products.length ; i++){
     data = `
     <div class="product-card">
     
     <div class="single-prod-cont">
     <a href=""><img class="sing-img" src=${products[id-1].images[0]} alt="" ></a>
-
-
-
 
     <div class = "prod-shap"  >
     <img src=${products[id-1].images[0]} >
@@ -49,7 +46,9 @@ for(let i =0 ; i<products.length ; i++){
         <div class="product-num">
             <span><i class="fa-solid fa-minus" onclick="minus(${products[id-1].id})"></i></span>
 
-            <span id=${products[id-1].id}>0</span>
+            <span id=${products[id-1].id}>
+            ${search.item === undefined? 0 : search.item }
+            </span>
             <span><i class="fa-solid fa-plus" onclick="Plus(${products[id-1].id})"></i></span>
         </div>
         
@@ -110,7 +109,7 @@ let singleImag = document.querySelector(".sing-img")
 
 
 
-let cart = []
+let cart = JSON.parse(localStorage.getItem("prodData")) || []
 
 function minus(id){
     // let search = products.map()
@@ -124,8 +123,10 @@ function minus(id){
         search.item -=1
     }
     // console.log(cart);
-    update(selctedid)
+    localStorage.setItem("prodData",JSON.stringify(cart[id]))
 
+    update(selctedid)
+    
 }
 
 function Plus (id){
@@ -140,8 +141,8 @@ function Plus (id){
     }else{
         search.item +=1
     }
-    
-    console.log(cart);
+    localStorage.setItem("prodData",JSON.stringify(cart))
+    // console.log(cart);
     update(selectedid)
 
 }
@@ -159,5 +160,4 @@ function total(id){
     let Num = document.querySelector(".num")
     Num.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
 }
-
 
