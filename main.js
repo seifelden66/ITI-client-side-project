@@ -32,6 +32,21 @@ btn1.addEventListener("click", () => {
     }
 })
 
+//============================================================
+//sidebar
+
+
+const side = document.getElementById('sidebar')
+sidebar.style.right = '-350px';
+
+function openSideBar (){
+    sidebar.style.right = '0';
+}
+
+function closeSidebar() {
+    sidebar.style.right = '-350px';
+}
+
 // =================================================================
 // user data
 
