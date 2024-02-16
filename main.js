@@ -212,4 +212,3 @@ if (token) {
 
     displayCartItemCount2();
 }
-

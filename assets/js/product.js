@@ -69,7 +69,6 @@ function createProductsCard() {
             <div class="card-button">
                 <div class="counter">
                     <button onclick="${token ? `removeFromCart2(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-minus"></i></button>
-                    <input type="number" name="quantity" id="cartLen2_${products[i].id}" min="0" max="${products[i].stock}" value="0">
                     <button onclick="${token ? `addToCart2(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div>
