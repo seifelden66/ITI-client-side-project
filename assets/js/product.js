@@ -57,19 +57,29 @@ function createProductsCard() {
         <div class="card">
             <a onclick="saveId(${products[i].id})" href="Single-Prod.html">
                 <img src="${products[i].images[0]}">
-                <h3>${products[i].title}</h3>
-                <div class="card-footer">
-                <div class="rate">${rate}</div>
-                <span>$ ${products[i].price}</span>
+                <div>
+                    <h3>${products[i].title}</h3>
+                    <p>${products[i].description}</p>
+                    <div class="card-footer">
+                    <div class="rate">${rate}</div>
+                    <span>$ ${products[i].price}</span>
+                    </div>
                 </div>
             </a>
-            <button class="cart-icon" onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}">Add to cart</button> 
-
+            <div class="card-button">
+                <div class="counter">
+                <button onclick="decreaseQuantity(${products[i].id})"><i class="fa-solid fa-minus"></i></button>
+                <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1">
+                <button onclick="increaseQuantity(${products[i].id})"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div>
+                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fas fa-shopping-cart"></i></button>
+                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>
+                </div>
+            </div>
         </div>
             
-        `
-
-            ;
+        `;
     }
 
     cardsContainer.innerHTML = cards;
@@ -180,10 +190,6 @@ function createProductsCard() {
     })
 
 }
-
-
-
-
 function createCategoriesList() {
     console.log(categories);
     let select = document.querySelector("#categories");
@@ -195,24 +201,49 @@ function createCategoriesList() {
     }
     select.innerHTML += options;
 }
+let searchInput = document.querySelector("#search");
+searchInput.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.querySelector("#search-btn").click();
+  }
+});
 function search() {
-    var searchInput = document.querySelector("#search");
     if (searchInput.value) {
         searchProductName(searchInput.value);
         var productContainer = document.querySelector("#products");
-        window.scrollTo(0, productContainer.offsetTop);
+        window.scroll({
+            behavior: "smooth",
+            top: productContainer.offsetTop
+        });
     }
 }
-
+function increaseQuantity(id){
+    let input = document.querySelector(`#p${id}-quantity`);
+    if(input.value < input.max)
+    input.value++;
+}
+function decreaseQuantity(id){
+    let input = document.querySelector(`#p${id}-quantity`);
+    if(input.value > input.min)
+    input.value--;
+}
+function listView(){
+    let cards = document.querySelectorAll(".card");
+    for(let i = 0; i < cards.length; i++){
+        cards[i].classList.add("card-list-view");
+    }
+}
+function cardView(){
+    let cards = document.querySelectorAll(".card");
+    for(let i = 0; i < cards.length; i++){
+        cards[i].classList.remove("card-list-view");
+    }
+}
 function saveId(id) {
     localStorage.setItem("ProducID", JSON.stringify(id))
 
 }
-
-
-
-
-
 
 getAllCategories();
 getAllPrducts();

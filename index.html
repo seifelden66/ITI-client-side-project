@@ -39,7 +39,7 @@
                 <h1>LOGO</h1>
                 <div class="search">
                     <input type="text" placeholder="Search name" name="search" id="search">
-                    <button onclick="search()"><i class="fas fa-search"></i></button>
+                    <button onclick="search()" id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
             </div>
 
@@ -105,8 +105,8 @@
         <div class="filter">
             <div>
                 <span>View:</span>
-                <button><i class="fas fa-th-large"></i></button>
-                <button><i class="fas fa-list"></i></button>
+                <button onclick="cardView()"><i class="fas fa-th-large"></i></button>
+                <button onclick="listView()"><i class="fas fa-list"></i></button>
             </div>
             <select name="categories" id="categories" onclick="filterByCategory(this.value)">
                 <option value="">All Products</option>
@@ -120,55 +120,63 @@
 
     </section>
 
-
     <footer>
-
-        <div class="footer1">
-            <h2>Any thing</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Data</a></li>
-                <li><a href="#">Contant</a></li>
-                <li><a href="#">Products</a></li>
+        <h3>E-Commerce</h3>
+        <div class="footer-container">
+            
+            <div class="footer1">
+                <h2>Soulution </h2>
+                <ul>
+                    <li><a href="#">adipisicing elit. Fuga cumque, dolorum quod consequatur autem in!</a></li>
+                </ul>
+                
+            </div>
+            <div class="footer1">
+                <h2>Industries</h2>
+                <ul>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Sports</a></li>
+                    <li><a href="#">ECommerce</a></li>
+                    <li><a href="#">Construction</a></li>
+                    <li><a href="#">Club</a></li>
+                </ul>
+                
+            </div>
+            <div class="footer1">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Term & Copreation</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">Contant</a></li>
+                </ul>
+                
+            </div>
+            <div class="footer1">
+                <h2>Stay Connection</h2>
+                <ul>
+                    <li class="supscrip"><input type="text" placeholder="Enter Email Address"><button>Subscrip</button>  </li>
+                    <li class="company-name"><a href="#">Office Location</a></li>
+                    <li class="company-icon"><a href="#"><i class="fa-regular fa-building"></i><span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, suscipit.</span> </a></li>
+                    <li class="company-icon"><a href="#"><i class="fa-solid fa-copyright"></i><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, sequi!</span> </a></li>
+                </ul>
+                
+            </div>
+            
+        </div>
+        <div class="footer-sec-container">
+            <ul class="list-fonts">
+                <li><span><i class="fa-brands fa-facebook"></i></span></li>
+                <li><span><i class="fa-brands fa-instagram"></i></span></li>
+                <li><span><i class="fa-brands fa-whatsapp"></i></span></li>
+                <li><span><i class="fa-brands fa-google-plus-g"></i></span></li>
+                <li><span><i class="fa-brands fa-x-twitter"></i></span></li>
             </ul>
 
-        </div>
-        <div class="footer1">
-            <h2>Any thing</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Data</a></li>
-                <li><a href="#">Contant</a></li>
-                <li><a href="#">Products</a></li>
-            </ul>
-
-        </div>
-        <div class="footer1">
-            <h2>Any thing</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Data</a></li>
-                <li><a href="#">Contant</a></li>
-                <li><a href="#">Products</a></li>
-            </ul>
-
-        </div>
-        <div class="footer1">
-            <h2>Any thing</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Data</a></li>
-                <li><a href="#">Contant</a></li>
-                <li><a href="#">Products</a></li>
-            </ul>
-
+            <h6 class="footer-h6">All Right Reserved 2024-2025 <br> Design by Our team</h6>
         </div>
 
-
+        
     </footer>
 
 
