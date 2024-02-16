@@ -57,10 +57,13 @@ function createProductsCard() {
         <div class="card">
             <a onclick="saveId(${products[i].id})" href="Single-Prod.html">
                 <img src="${products[i].images[0]}">
-                <h3>${products[i].title}</h3>
-                <div class="card-footer">
-                <div class="rate">${rate}</div>
-                <span>$ ${products[i].price}</span>
+                <div>
+                    <h3>${products[i].title}</h3>
+                    <p>${products[i].description}</p>
+                    <div class="card-footer">
+                    <div class="rate">${rate}</div>
+                    <span>$ ${products[i].price}</span>
+                    </div>
                 </div>
             </a>
             <div class="card-button">
@@ -187,10 +190,6 @@ function createProductsCard() {
     })
 
 }
-
-
-
-
 function createCategoriesList() {
     console.log(categories);
     let select = document.querySelector("#categories");
@@ -202,35 +201,49 @@ function createCategoriesList() {
     }
     select.innerHTML += options;
 }
+let searchInput = document.querySelector("#search");
+searchInput.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.querySelector("#search-btn").click();
+  }
+});
 function search() {
-    var searchInput = document.querySelector("#search");
     if (searchInput.value) {
         searchProductName(searchInput.value);
         var productContainer = document.querySelector("#products");
-        window.scrollTo(0, productContainer.offsetTop);
+        window.scroll({
+            behavior: "smooth",
+            top: productContainer.offsetTop
+        });
     }
 }
 function increaseQuantity(id){
-    var input = document.querySelector(`#p${id}-quantity`);
+    let input = document.querySelector(`#p${id}-quantity`);
     if(input.value < input.max)
     input.value++;
 }
 function decreaseQuantity(id){
-    var input = document.querySelector(`#p${id}-quantity`);
+    let input = document.querySelector(`#p${id}-quantity`);
     if(input.value > input.min)
     input.value--;
 }
-
-
+function listView(){
+    let cards = document.querySelectorAll(".card");
+    for(let i = 0; i < cards.length; i++){
+        cards[i].classList.add("card-list-view");
+    }
+}
+function cardView(){
+    let cards = document.querySelectorAll(".card");
+    for(let i = 0; i < cards.length; i++){
+        cards[i].classList.remove("card-list-view");
+    }
+}
 function saveId(id) {
     localStorage.setItem("ProducID", JSON.stringify(id))
 
 }
-
-
-
-
-
 
 getAllCategories();
 getAllPrducts();

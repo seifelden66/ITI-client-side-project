@@ -31,7 +31,7 @@
                 <h1>LOGO</h1>
                 <div class="search">
                     <input type="text" placeholder="Search name" name="search" id="search">
-                    <button onclick="search()"><i class="fas fa-search"></i></button>
+                    <button onclick="search()" id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
             </div>
 
@@ -87,8 +87,8 @@
         <div class="filter">
             <div>
                 <span>View:</span>
-                <button><i class="fas fa-th-large"></i></button>
-                <button><i class="fas fa-list"></i></button>
+                <button onclick="cardView()"><i class="fas fa-th-large"></i></button>
+                <button onclick="listView()"><i class="fas fa-list"></i></button>
             </div>
             <select name="categories" id="categories" onclick="filterByCategory(this.value)">
                 <option value="">All Products</option>
