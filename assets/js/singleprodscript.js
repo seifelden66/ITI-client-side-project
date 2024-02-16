@@ -160,4 +160,13 @@ function total(id){
     Num.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
 }
 
+const side = document.getElementById('sidebar')
+
+function openSideBar (){
+    side.style.right = '0';
+}
+
+function closeSidebar() {
+    side.style.right = '-350px';
+}
 
