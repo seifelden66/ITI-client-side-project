@@ -1,10 +1,13 @@
 let products = [];
 let categories = [];
-let limit;
+let limit = 30;
+let total = 0;
+let currentPage = 1;
 async function getAllPrducts() {
     const response = await fetch("https://dummyjson.com/products");
     let data = await response.json();
     products = data.products;
+    total = data.total;
     createProductsCard();
 }
 async function GetProductsPerPage(currentPage) {
@@ -13,6 +16,11 @@ async function GetProductsPerPage(currentPage) {
     let data = await response.json();
     products = data.products;
     createProductsCard();
+    var productContainer = document.querySelector("#products");
+    window.scroll({
+        behavior: "smooth",
+        top: productContainer.offsetTop
+    });
 }
 async function getAllCategories() {
     const response = await fetch("https://dummyjson.com/products/categories");
@@ -23,12 +31,14 @@ async function getProductByCategory(category) {
     const response = await fetch(`https://dummyjson.com/products/category/${category}`);
     let data = await response.json();
     products = data.products;
+    total = data.total;
     createProductsCard();
 }
 async function searchProductName(productName) {
     const response = await fetch(`https://dummyjson.com/products/search?q=${productName}`);
     let data = await response.json();
     products = data.products.filter(p => p.title.toLowerCase().includes(productName.toLowerCase()));
+    total = data.total;
     createProductsCard();
 }
 function filterByCategory(category) {
@@ -68,9 +78,9 @@ function createProductsCard() {
             </a>
             <div class="card-button">
                 <div class="counter">
-                <button onclick="decreaseQuantity(${products[i].id})"><i class="fa-solid fa-minus"></i></button>
-                <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1">
-                <button onclick="increaseQuantity(${products[i].id})"><i class="fa-solid fa-plus"></i></button>
+                    <button onclick="decreaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-minus"></i></button>
+                    <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1" readonly>
+                    <button onclick="increaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div>
                     <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fas fa-shopping-cart"></i></button>
@@ -83,7 +93,7 @@ function createProductsCard() {
     }
 
     cardsContainer.innerHTML = cards;
-
+    pagenation();
 
     carouselData = `
             <div class="owl-carousel owl-theme">
@@ -219,12 +229,12 @@ function search() {
     }
 }
 function increaseQuantity(id){
-    let input = document.querySelector(`#p${id}-quantity`);
+    let input = document.getElementById(id);
     if(input.value < input.max)
     input.value++;
 }
 function decreaseQuantity(id){
-    let input = document.querySelector(`#p${id}-quantity`);
+    let input = document.getElementById(id);
     if(input.value > input.min)
     input.value--;
 }
@@ -239,6 +249,30 @@ function cardView(){
     for(let i = 0; i < cards.length; i++){
         cards[i].classList.remove("card-list-view");
     }
+}
+function pagenation(){
+    let pagesNumber = total%limit == 0? total/limit : total/limit + 1;
+    if(pagesNumber > 1){
+        var pagenationCotainer = document.querySelector(".pagenation");
+        let pages = "";
+        for (let i = 1; i <= pagesNumber; i++) {
+            pages += `
+                <button onclick="GetProductsPerPage(${i})" class="page">${i}</button>
+            `;
+        }
+        let prev = `<button onclick="prevPage()" class="page control" ${currentPage == 1? "disabled" : ""}><i class="fa-solid fa-angle-left"></i></button>`;
+        let next = `<button onclick="nextPage()" class="page control" ${currentPage == pagesNumber? "disabled" : ""}><i class="fa-solid fa-angle-right"></i></button>`;
+        pagenationCotainer.innerHTML = prev + pages + next
+        console.log(pagenationCotainer);
+    }
+}
+function prevPage(){
+    currentPage--;
+    GetProductsPerPage(currentPage);
+}
+function nextPage(){
+    currentPage++;
+    GetProductsPerPage(currentPage);
 }
 function saveId(id) {
     localStorage.setItem("ProducID", JSON.stringify(id))
