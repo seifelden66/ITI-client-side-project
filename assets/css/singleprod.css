@@ -7,15 +7,13 @@ body{
 
 
 .product-card{
-    margin-top: 70px;
-    /* width: 80%; */
     display: flex;
     flex-direction: row;
     /* height: 100%; */
     align-items: center;
     /* margin: auto;     */
     justify-content: center;
-    
+    padding-top: 120px;    
 }
 
 .single-prod-cont{

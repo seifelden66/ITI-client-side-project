@@ -70,18 +70,6 @@ body {
 
 }
 
-.head1 {
-    background: var(--light-white);
-    color: var(--black-color);
-    padding: 5px 0;
-
-    .cont {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-}
 
 button {
     padding: 10px 17px;
@@ -107,6 +95,9 @@ img {
 .head2 {
     background-color: var(--blue-color);
     padding: 20px 0;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
     color: var(--light-white);
 }
 
@@ -122,7 +113,7 @@ img {
     align-items: center;
     justify-content: space-between;
 
-    .search {
+    /* .search {
         input {
             color: var(--dark-800);
             background: var(--white-color);
@@ -130,7 +121,7 @@ img {
             padding: 10px;
             border: none;
         }
-    }
+    } */
 
     .pages {
         display: flex;
@@ -138,6 +129,54 @@ img {
         gap: 15px;
     }
 }
+
+.burger {
+    display: none;
+}
+
+.sidebar {
+    padding: 30px 10px;
+    position: fixed;
+    top: 0;
+    right :-350px;
+
+    width: -350px;
+    height: 100%;
+    background-color: #333;
+    height: 100vh;
+    z-index: 999;
+    color: white;
+    transition: right 0.4s ease;
+
+    .close {
+        color: red;
+        margin-bottom: 20px;
+        font-size: x-large;
+    }
+    ul>li{
+        font-size: large;
+        text-decoration: none;
+        list-style: none;
+        margin: 20px auto ;
+        padding: 5px;
+        
+    }
+    ul>li:hover{
+        background: #c2c0c096;
+    }
+
+
+}
+
+.burger {
+    cursor: pointer;
+}
+
+#toggle {
+    font-size: 24px;
+}
+
+
 .dropdown {
     position: relative;
 }
@@ -147,7 +186,7 @@ img {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -175,11 +214,21 @@ img {
 .fa-angle-down {
     margin-left: 5px;
 }
+
 @media (max-width:768px) {
     .head2>.cont {
 
         .pages {
             display: none;
+        }
+    }
+
+    .burger {
+        display: block;
+
+        i {
+            cursor: pointer;
+            font-size: x-large;
         }
     }
 }
@@ -216,9 +265,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    i{
+
+    i {
         z-index: 99;
     }
+
     .num {
         height: 20px;
         width: 20px;
@@ -230,20 +281,22 @@ img {
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
     }
 }
 
 
-.user{
+.user {
     height: 30px;
     display: flex;
     align-items: center;
     gap: 2px;
     margin-left: 30px;
 }
+
 /* ============================================================ */
 .hero-section {
+    padding-top: 110px;
     height: 60vh;
     background-color: var(--light-white);
     display: flex;

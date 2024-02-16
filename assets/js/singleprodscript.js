@@ -108,8 +108,8 @@ let singleImag = document.querySelector(".sing-img")
 
 
 
-
-let cart = JSON.parse(localStorage.getItem("prodData")) || []
+// cart = JSON.parse(localStorage.getItem("prodData")) || []
+let cart =[]
 
 function minus(id){
     // let search = products.map()
@@ -159,5 +159,15 @@ function total(id){
 
     let Num = document.querySelector(".num")
     Num.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
+}
+
+const side = document.getElementById('sidebar')
+
+function openSideBar (){
+    side.style.right = '0';
+}
+
+function closeSidebar() {
+    side.style.right = '-350px';
 }
 

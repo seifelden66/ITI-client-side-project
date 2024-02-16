@@ -1,6 +1,6 @@
 let heroImg = document.querySelector(".hero-img")
-let btn1 = document.querySelector(".btn1")
-let btn2 = document.querySelector(".btn2")
+let btn1 = document.querySelector(".b1")
+let btn2 = document.querySelector(".b2")
 let imgs = [
     "imgs/1.jpg",
     // "imgs/hero2.png",
@@ -31,6 +31,23 @@ btn1.addEventListener("click", () => {
 
     }
 })
+
+//============================================================
+//sidebar
+
+
+const side = document.getElementById('sidebar')
+
+function openSideBar (){
+    side.style.right = '0';
+}
+
+function closeSidebar() {
+    side.style.right = '-350px';
+}
+
+
+
 
 // =================================================================
 // user data

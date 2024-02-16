@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/singleprod.css">
+    <title>Document</title>
 </head>
+
 <body>
     <div class="head2">
         <div class="cont">
@@ -21,38 +25,61 @@
 
             <div class="pages">
                 <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact US</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
                 <div class="cart">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="num">0</div>
+                    <div class="num" id="cartLen"></div>
                 </div>
+                <div class="dropdown" id="isLoged">
+                    <div class="user" id="userImage">
+
+                    </div>
+                    <div class="dropdown-content" id="drpdwn">
+
+                    </div>
+                </div>
+            </div>
+            <div class="burger">
+                <i class="fa-solid fa-bars" id="toggle" onclick="openSideBar()"></i>
             </div>
         </div>
     </div>
+    <div class="sidebar" id='sidebar'>
+        <div onclick="closeSidebar()" class="close">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </div>
 
-    
+
+
     <div class="container">
 
     </div>
 
-        <section class="BuyNow hiden">
-            <div class="BuyNow-conter">
-    
-                <div class="check-font">
-        
-                        <span><i class="fa-solid fa-check"></i></span>
-            
-                        <span><i class="fa-regular fa-circle"></i></span>
-                </div>
-        
-                <h5>Woohoo! <br> Your order has been placed </h5>
-        
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti corporis natus?</p>
-                <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
+    <section class="BuyNow hiden">
+        <div class="BuyNow-conter">
+
+            <div class="check-font">
+
+                <span><i class="fa-solid fa-check"></i></span>
+
+                <span><i class="fa-regular fa-circle"></i></span>
             </div>
-        </section>
+
+            <h5>Woohoo! <br> Your order has been placed </h5>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deleniti corporis natus?</p>
+            <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+    </section>
 
     <script src="assets/js/singleprodscript.js"></script>
 </body>
+
 </html>
