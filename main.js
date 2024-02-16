@@ -38,7 +38,7 @@ btn1.addEventListener("click", () => {
 
 const side = document.getElementById('sidebar')
 
-function openSideBar (){
+function openSideBar() {
     side.style.right = '0';
 }
 
@@ -58,6 +58,9 @@ const drpdwn = document.getElementById('drpdwn')
 let cartItems = document.getElementById('cart')
 const token = localStorage.getItem('token');
 const login = document.getElementById('login')
+const circle = document.querySelector('.num')
+const circle2 = document.querySelector('.num2')
+
 function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
@@ -81,7 +84,7 @@ if (token) {
         })
         .then(data => {
 
-                login.style.display="none"
+            login.style.display = "none"
             isLogged.innerHTML = `
             <img src="${data.image}"></img>
             <i class="fa-solid fa-chevron-down"></i>
@@ -99,8 +102,10 @@ if (token) {
     login.innerHTML = `
     <a href="login.html">sign in</a>
     `
-    isLogged.style.display="block"
-   
+    isLogged.style.display = "block"
+    circle.style.display="none"
+    circle2.style.display="none"
+
 }
 
 
@@ -125,6 +130,7 @@ if (token) {
     }
 
 
+
     function getCart() {
         return JSON.parse(localStorage.getItem('cart')) || [];
     }
@@ -134,13 +140,76 @@ if (token) {
         let cartItemCountElement = document.getElementById('cartLen');
         if (cartItemCountElement) {
             cartItemCountElement.textContent = cart.length.toString();
-            
         }
     }
 
 
     displayCartItemCount();
-   
 
+
+}
+//===============================================================
+// cart 2
+if (token) {
+    function addToCart2(productId) {
+        let product = products.find(prod => prod.id === productId);
+        let cart = JSON.parse(localStorage.getItem('cart2')) || [];
+        let existingItem = cart.find(item => item.id === productId);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            product.quantity = 1;
+            cart.push(product);
+        }
+
+        localStorage.setItem('cart2', JSON.stringify(cart));
+        displayCartItemCount2();
+    }
+    function removeFromCart2(productId) {
+        let cart = JSON.parse(localStorage.getItem('cart2')) || [];
+        let itemIndex = cart.findIndex(item => item.id === productId);
+        if (itemIndex !== -1) {
+            let item = cart[itemIndex];
+            if (item.quantity > 0 || minQuantity === undefined) {
+                item.quantity--;
+                localStorage.setItem('cart2', JSON.stringify(cart));
+                displayCartItemCount2();
+            } else {
+                removeFromCart2Complete(productId);
+            }
+        } else {
+            alert(`Product with ID ${productId} not found in cart.`);
+        }
+    }
+
+    function removeFromCart2Complete(productId) {
+        let cart = JSON.parse(localStorage.getItem('cart2')) || [];
+        let itemIndex = cart.findIndex(item => item.id === productId);
+
+        if (itemIndex !== -1) {
+            cart.splice(itemIndex, 1);
+            localStorage.setItem('cart2', JSON.stringify(cart));
+            displayCartItemCount2();
+        }
+    }
+
+
+    function getCart2() {
+        return JSON.parse(localStorage.getItem('cart2')) || [];
+    }
+
+    function displayCartItemCount2() {
+        let cart = getCart2();
+        let cartItemCountElement = document.getElementById('cartLen2');
+        if (cartItemCountElement) {
+            let totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+            cartItemCountElement.textContent = totalQuantity.toString();
+            
+        }
+    }
+
+
+
+    displayCartItemCount2();
 }
 

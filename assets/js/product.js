@@ -68,12 +68,11 @@ function createProductsCard() {
             </a>
             <div class="card-button">
                 <div class="counter">
-                <button onclick="decreaseQuantity(${products[i].id})"><i class="fa-solid fa-minus"></i></button>
-                <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1">
-                <button onclick="increaseQuantity(${products[i].id})"><i class="fa-solid fa-plus"></i></button>
+                    <button onclick="${token ? `removeFromCart2(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-minus"></i></button>
+                    <input type="number" name="quantity" id="cartLen2_${products[i].id}" min="0" max="${products[i].stock}" value="0">
+                    <button onclick="${token ? `addToCart2(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div>
-                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fas fa-shopping-cart"></i></button>
                     <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>
                 </div>
             </div>
