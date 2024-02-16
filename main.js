@@ -57,7 +57,7 @@ const isLogged = document.getElementById('userImage')
 const drpdwn = document.getElementById('drpdwn')
 let cartItems = document.getElementById('cart')
 const token = localStorage.getItem('token');
-
+const login = document.getElementById('login')
 function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('userData');
@@ -81,6 +81,7 @@ if (token) {
         })
         .then(data => {
 
+                login.style.display="none"
             isLogged.innerHTML = `
             <img src="${data.image}"></img>
             <i class="fa-solid fa-chevron-down"></i>
@@ -95,13 +96,11 @@ if (token) {
             console.error(error);
         });
 } else {
-    isLogged.innerHTML = `
-        <img src="/imgs/user.png"></img>
-        <i class="fa-solid fa-chevron-down"></i>
-    `
-    drpdwn.innerHTML = `
+    login.innerHTML = `
     <a href="login.html">sign in</a>
-    `;
+    `
+    isLogged.style.display="block"
+   
 }
 
 
