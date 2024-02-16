@@ -122,7 +122,7 @@ img {
     align-items: center;
     justify-content: space-between;
 
-    .search {
+    /* .search {
         input {
             color: var(--dark-800);
             background: var(--white-color);
@@ -130,7 +130,7 @@ img {
             padding: 10px;
             border: none;
         }
-    }
+    } */
 
     .pages {
         display: flex;

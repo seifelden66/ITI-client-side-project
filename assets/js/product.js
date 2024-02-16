@@ -63,13 +63,20 @@ function createProductsCard() {
                 <span>$ ${products[i].price}</span>
                 </div>
             </a>
-            <button class="cart-icon" onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}">Add to cart</button> 
-
+            <div class="card-button">
+                <div class="counter">
+                <button onclick="decreaseQuantity(${products[i].id})"><i class="fa-solid fa-minus"></i></button>
+                <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1">
+                <button onclick="increaseQuantity(${products[i].id})"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div>
+                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fas fa-shopping-cart"></i></button>
+                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>
+                </div>
+            </div>
         </div>
             
-        `
-
-            ;
+        `;
     }
 
     cardsContainer.innerHTML = cards;
@@ -203,6 +210,17 @@ function search() {
         window.scrollTo(0, productContainer.offsetTop);
     }
 }
+function increaseQuantity(id){
+    var input = document.querySelector(`#p${id}-quantity`);
+    if(input.value < input.max)
+    input.value++;
+}
+function decreaseQuantity(id){
+    var input = document.querySelector(`#p${id}-quantity`);
+    if(input.value > input.min)
+    input.value--;
+}
+
 
 function saveId(id) {
     localStorage.setItem("ProducID", JSON.stringify(id))
