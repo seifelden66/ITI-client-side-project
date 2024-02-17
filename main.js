@@ -1,6 +1,6 @@
 let heroImg = document.querySelector(".hero-img")
-let btn1 = document.querySelector(".btn1")
-let btn2 = document.querySelector(".btn2")
+let btn1 = document.querySelector(".b1")
+let btn2 = document.querySelector(".b2")
 let imgs = [
     "imgs/1.jpg",
     // "imgs/hero2.png",
@@ -37,15 +37,17 @@ btn1.addEventListener("click", () => {
 
 
 const side = document.getElementById('sidebar')
-sidebar.style.right = '-350px';
 
-function openSideBar (){
-    sidebar.style.right = '0';
+function openSideBar() {
+    side.style.right = '0';
 }
 
 function closeSidebar() {
-    sidebar.style.right = '-350px';
+    side.style.right = '-350px';
 }
+
+
+
 
 // =================================================================
 // user data
@@ -55,6 +57,9 @@ const isLogged = document.getElementById('userImage')
 const drpdwn = document.getElementById('drpdwn')
 let cartItems = document.getElementById('cart')
 const token = localStorage.getItem('token');
+const login = document.getElementById('login')
+const circle = document.querySelector('.num')
+const circle2 = document.querySelector('.num2')
 
 function logout() {
     localStorage.removeItem('token');
@@ -79,6 +84,7 @@ if (token) {
         })
         .then(data => {
 
+            login.style.display = "none"
             isLogged.innerHTML = `
             <img src="${data.image}"></img>
             <i class="fa-solid fa-chevron-down"></i>
@@ -93,19 +99,19 @@ if (token) {
             console.error(error);
         });
 } else {
-    isLogged.innerHTML = `
-        <img src="/imgs/user.png"></img>
-        <i class="fa-solid fa-chevron-down"></i>
-    `
-    drpdwn.innerHTML = `
+    login.innerHTML = `
     <a href="login.html">sign in</a>
-    `;
+    `
+    isLogged.style.display = "block"
+    circle.style.display = "none"
+    circle2.style.display = "none"
+
 }
 
 
 
 // =================================================================
-//cart
+//cart favs
 
 if (token) {
     function addToCart(productId) {
@@ -124,6 +130,7 @@ if (token) {
     }
 
 
+
     function getCart() {
         return JSON.parse(localStorage.getItem('cart')) || [];
     }
@@ -133,13 +140,61 @@ if (token) {
         let cartItemCountElement = document.getElementById('cartLen');
         if (cartItemCountElement) {
             cartItemCountElement.textContent = cart.length.toString();
-            
         }
     }
 
 
     displayCartItemCount();
-   
+
 
 }
 
+
+
+
+
+
+
+if (token) {
+    let cart3= JSON.parse(localStorage.getItem("prodData")) || [];
+    let Num = document.querySelector(".num2");
+    Num.innerHTML = 0;
+
+    function reduce(id) {
+        let selectedId = id;
+        let search = cart3.find((x) => x.id === selectedId);
+        if (search && search.item > 0) {
+            search.item -= 1;
+            localStorage.setItem("prodData", JSON.stringify(cart3));
+            update(selectedId);
+        }
+    }
+
+    function increase(id) {
+        let selectedId = id;
+        let search = cart3.find((x) => x.id === selectedId);
+
+        if (search === undefined) {
+            cart3.push({
+                id: selectedId,
+                item: 1
+            });
+        } else {
+            search.item += 1;
+        }
+        localStorage.setItem("prodData", JSON.stringify(cart3));
+        update(selectedId);
+    }
+
+    function update(id) {
+        let search = cart3.find((x) => x.id === id);
+        document.getElementById(id).innerHTML = search ? search.item : 0;
+        total();
+    }
+
+    function total() {
+        Num.innerHTML = cart3.map((x) => x.item).reduce((x, y) => x + y, 0);
+    }
+
+
+}
