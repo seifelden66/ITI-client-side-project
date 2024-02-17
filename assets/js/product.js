@@ -69,7 +69,7 @@ function createProductsCard() {
             <div class="card-button">
                 <div class="counter">
                     <button onclick="${token ? `reduce(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-minus"></i></button>
-                    <span class="cc" id="${products[i].id}">0</span>
+                    <span class="cc" id="${products[i].id}">0</span>                    
                     <button onclick="${token ? `increase(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-plus"></i></button>                </div>
                 <div>
                     <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>

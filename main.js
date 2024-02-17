@@ -156,9 +156,11 @@ if (token) {
 
 
 if (token) {
-    let cart3= JSON.parse(localStorage.getItem("prodData")) || [];
+    let cart3 = JSON.parse(localStorage.getItem("prodData")) || [];
     let Num = document.querySelector(".num2");
-    Num.innerHTML = 0;
+    total()
+
+
 
     function reduce(id) {
         let selectedId = id;
@@ -188,12 +190,23 @@ if (token) {
 
     function update(id) {
         let search = cart3.find((x) => x.id === id);
-        document.getElementById(id).innerHTML = search ? search.item : 0;
+        let value = search ? search.item : 0;
+        document.getElementById(id).innerHTML = value;
         total();
+        let updatedValue = JSON.parse(localStorage.getItem("updatedValue")) || {};
+        updatedValue[id] = value;
+        localStorage.setItem('updatedValue', JSON.stringify(updatedValue));
+        return value;
+
     }
+ 
+
+    // Log the retrieved value
+
 
     function total() {
         Num.innerHTML = cart3.map((x) => x.item).reduce((x, y) => x + y, 0);
+
     }
 
 
