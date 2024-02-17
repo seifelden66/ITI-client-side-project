@@ -110,20 +110,20 @@ if (token) {
 //cart
 
 if (token) {
-    function addToCart(productId) {
-        let product = products.find(prod => prod.id === productId);
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // function addToCart(productId) {
+    //     let product = products.find(prod => prod.id === productId);
+    //     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        if (cart.some(item => item.id === productId)) {
-            alert('Product is already in the cart');
-        } else {
-            alert('product added successfully!')
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            displayCartItemCount();
+    //     if (cart.some(item => item.id === productId)) {
+    //         alert('Product is already in the cart');
+    //     } else {
+    //         alert('product added successfully!')
+    //         cart.push(product);
+    //         localStorage.setItem('cart', JSON.stringify(cart));
+    //         displayCartItemCount();
 
-        }
-    }
+    //     }
+    // }
 
 
     function getCart() {
@@ -134,8 +134,11 @@ if (token) {
         let cart = getCart();
         let cartItemCountElement = document.getElementById('cartLen');
         if (cartItemCountElement) {
-            cartItemCountElement.textContent = cart.length.toString();
-            
+            let count = 0;
+            for(let i = 0; i < cart.length; i++){
+                count += +cart[i].quantity;
+            }
+            cartItemCountElement.textContent = count;
         }
     }
 
