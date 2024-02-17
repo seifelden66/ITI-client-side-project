@@ -82,7 +82,7 @@ body{
 }
 
 .single-prod-data span i{
-    color: #ffeb66;
+    color: var(--yellow-color);
 }
 .product-num{
     width: 100%;

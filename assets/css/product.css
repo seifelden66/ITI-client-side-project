@@ -18,12 +18,12 @@
     margin-bottom: 20px;
 }
 .header-title p >span{
-    color: var(--orange-color);
+    color: var(--yellow-color);
     /* font-size: 35px; */
 }
 .header-title a{
     padding: 10px 15px;
-    background-color: var(--orange-color);
+    background-color: var(--yellow-color);
     border-radius: 5px;
     color: var(--black-color);
     margin-top: 20px;
@@ -139,7 +139,7 @@ main{
 }
 .card h3{
     font-size: 1.2rem;
-    color: var(--blue-color);
+    color: var(--dark-700);
     margin: 8px 0;
 }
 .card p{
@@ -155,7 +155,7 @@ main{
     font-weight: 600;
 }
 .rate{
-    color: var(--orange-color);
+    color: var(--yellow-color);
 }
 .card-button{
     margin-top: 15px;
@@ -198,8 +198,8 @@ main{
     border: 1px solid var(--gray-color);
 }
 .pagenation .control{
-    border-color: var(--blue-color);
-    background-color: var(--blue-color);
+    border-color: var(--dark-700);
+    background-color: var(--dark-700);
     color: var(--white-color);
 }
 
@@ -215,7 +215,7 @@ main{
 }
 .cont-carousel h2  span{
 
-    border: solid var(--blue-color);
+    border: solid var(--dark-700);
     padding: 20px 30px;
     border-radius: 10px;
     color: var(--gray-color-dark);
