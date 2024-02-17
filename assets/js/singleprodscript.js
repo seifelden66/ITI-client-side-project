@@ -1,10 +1,11 @@
+// const token = localStorage.getItem('token');
 const id = localStorage.getItem("ProducID")
 async function getData(){
     const response = await fetch(`https://dummyjson.com/products`)
     let data = await response.json()
      products = data.products
     singleProduct(products)
-console.log(products);
+    console.log(products);
 }
 
 
@@ -12,7 +13,7 @@ function singleProduct (products){
 let data =""
 let container = document.querySelector(".container")
 for(let i =0 ; i<products.length ; i++){
-    let search = cart.find((x)=>x.id === products[id-1].id) || []
+    // let search = cart.find((x)=>x.id === products[id-1].id) || []
     data = `
     <div class="product-card">
     
@@ -44,17 +45,15 @@ for(let i =0 ; i<products.length ; i++){
     <h6><span>descripton of product:</span>  ${products[id-1].description}</h6>
     </div>    
         <div class="product-num">
-            <span><i class="fa-solid fa-minus" onclick="minus(${products[id-1].id})"></i></span>
-
-            <span id=${products[id-1].id}>
-            ${search.item === undefined? 0 : search.item }
-            </span>
-            <span><i class="fa-solid fa-plus" onclick="Plus(${products[id-1].id})"></i></span>
+            <span onclick="decreaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-minus"></i></span>
+            <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1" readonly>
+            <span onclick="increaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-plus"></i></span>
         </div>
         
         <div class="add-tocart">
             <button class="btn1"><a href="index.html">Back to Home </a></button>
-            <button class="btn2">Buy Now</button>
+            <button class="btn2" onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}">Buy Now</button>
+            <button class="btn3" onclick="${token ? `addToFavorite(${products[i].id})` : `alert('please sign in!');`}">Add to Favorite</button>
         </div>
       
     </div>
@@ -106,69 +105,68 @@ btn2.addEventListener("click",()=>{
 getData()
 let singleImag = document.querySelector(".sing-img")
 
-
 //  cart =JSON.parse(localStorage.getItem("prodData")) || []
-let cart = JSON.parse(localStorage.getItem("prodData")) || []
+//let cart = JSON.parse(localStorage.getItem("prodData")) || []
 
-function minus(id){
-    // let search = products.map()
-    selctedid = id
-    let search = cart.find((x)=> x.id === selctedid)
+// function minus(id){
+//     // let search = products.map()
+//     selctedid = id
+//     let search = cart.find((x)=> x.id === selctedid)
 
-    if(search.item === 0){
-        return
+//     if(search.item === 0){
+//         return
 
-    }else{
-        search.item -=1
-    }
-    // console.log(cart);
-    localStorage.setItem("prodData",JSON.stringify(cart))
+//     }else{
+//         search.item -=1
+//     }
+//     // console.log(cart);
+//     localStorage.setItem("prodData",JSON.stringify(cart))
 
-    update(selctedid)
+//     update(selctedid)
     
-}
+// }
 
-function Plus (id){
-    selectedid = id
-    let search = cart.find((x)=> x.id === selectedid)
+// function Plus (id){
+//     selectedid = id
+//     let search = cart.find((x)=> x.id === selectedid)
     
-    if (search === undefined){
-        cart.push({
-            id : selectedid,
-            item :1
-        })
-    }else{
-        search.item +=1
-    }
-    localStorage.setItem("prodData",JSON.stringify(cart))
-    // console.log(cart);
-    update(selectedid)
+//     if (search === undefined){
+//         cart.push({
+//             id : selectedid,
+//             item :1
+//         })
+//     }else{
+//         search.item +=1
+//     }
+//     localStorage.setItem("prodData",JSON.stringify(cart))
+//     // console.log(cart);
+//     update(selectedid)
 
-}
+// }
 
-function update (id){
-    let search = cart.find((x)=>x.id === id)
-    document.getElementById(id).innerHTML = search.item    
+// function update (id){
+//     let search = cart.find((x)=>x.id === id)
+//     document.getElementById(id).innerHTML = search.item    
 
-    total(id)
-}
+//     total(id)
+// }
 
-function total(id){
-    selectedid = id
+// function total(id){
+//     selectedid = id
 
-    let Num = document.querySelector(".num")
-    Num.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
-}
+//     let Num = document.querySelector(".num")
+//     Num.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
+// }
 
-const side = document.getElementById('sidebar')
+// const side = document.getElementById('sidebar')
 
-function openSideBar (){
-    side.style.right = '0';
-}
+// function openSideBar (){
+//     side.style.right = '0';
+// }
 
-function closeSidebar() {
-    side.style.right = '-350px';
-}
+// function closeSidebar() {
+//     side.style.right = '-350px';
+// }
 
 
 
