@@ -10,9 +10,9 @@ console.log(products);
 
 function singleProduct (products){
 let data =""
-let search = cart.find((x)=>x.id === products[id-1].id)|| []
 let container = document.querySelector(".container")
 for(let i =0 ; i<products.length ; i++){
+    let search = cart.find((x)=>x.id === products[id-1].id) || []
     data = `
     <div class="product-card">
     
@@ -89,7 +89,7 @@ prodShap.addEventListener("click",(e)=>{
 let btn1 = document.querySelector(".btn1")
 let btn2 = document.querySelector(".btn2")
 let BuyNow = document.querySelector(".BuyNow")
-let close = document.querySelector(".close")
+let close = document.querySelector(".closee")
 btn2.addEventListener("click",()=>{
     BuyNow.classList.replace("hiden","show")    
     // alert("dsfad")
@@ -107,8 +107,7 @@ getData()
 let singleImag = document.querySelector(".sing-img")
 
 
-
-
+//  cart =JSON.parse(localStorage.getItem("prodData")) || []
 let cart = JSON.parse(localStorage.getItem("prodData")) || []
 
 function minus(id){
@@ -123,7 +122,7 @@ function minus(id){
         search.item -=1
     }
     // console.log(cart);
-    localStorage.setItem("prodData",JSON.stringify(cart[id]))
+    localStorage.setItem("prodData",JSON.stringify(cart))
 
     update(selctedid)
     
@@ -171,3 +170,17 @@ function closeSidebar() {
     side.style.right = '-350px';
 }
 
+
+
+/** 
+const response = [{id:432,name:"Iphone"},{id:4332,name:"LAPTOP"}]
+
+
+localStorage = 4332
+ID =4332
+
+products[id]
+
+
+
+*/
