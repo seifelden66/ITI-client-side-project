@@ -118,6 +118,15 @@ img {
     gap: 30px;
 }
 
+.Shopy{
+    color: var(--light-white);
+}
+.O{
+    color: #F3BD16;
+    padding: 0px 3px ;
+    font-size: 33px;    
+}
+
 .head2>.cont {
     display: flex;
     align-items: center;
@@ -462,8 +471,17 @@ footer h3{
     font-size: 30px;
     color: var(--light-white);
     display: flex;
-    justify-content: center;
-    
+    width: 90%;
+    margin: auto;
+    font-weight: 700;
+}
+.Shopy{
+    color: var(--light-white);
+}
+.O{
+    color: #F3BD16;
+    padding: 0px 3px ;
+    font-size: 33px;    
 }
 .footer-container{
     display: flex;
