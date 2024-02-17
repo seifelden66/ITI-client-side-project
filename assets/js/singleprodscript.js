@@ -1,15 +1,17 @@
 // const token = localStorage.getItem('token');
 const id = localStorage.getItem("ProducID")
+let products = []
 async function getData(){
     const response = await fetch(`https://dummyjson.com/products/${id}`)
     let data = await response.json()
-     products = data
+     product = data
+     products.push (product)
      console.log(products);
-    singleProduct(products)
+    singleProduct(product)
 }
 
 
-function singleProduct (products){
+function singleProduct (product){
 let data =""
 let container = document.querySelector(".container")
     // let search = cart.find((x)=>x.id === products[id-1].id) || []
@@ -17,13 +19,13 @@ let container = document.querySelector(".container")
     <div class="product-card">
     
     <div class="single-prod-cont">
-    <a href=""><img class="sing-img" src=${products.images[0]} alt="" ></a>
+    <a href=""><img class="sing-img" src=${product.images[0]} alt="" ></a>
 
     <div class = "prod-shap"  >
-    <img src=${products.images[0]} >
-    <img src=${products.images[1]} >
-    <img src=${products.images[2]} >
-    <img src=${products.images[3]} >
+    <img src=${product.images[0]} >
+    <img src=${product.images[1]} >
+    <img src=${product.images[2]} >
+    <img src=${product.images[3]} >
     </div>
 
 
@@ -32,27 +34,27 @@ let container = document.querySelector(".container")
     
     <div class="product-add">
     <div class="single-prod-data">
-    <h1>${products.title}</h1>
-    <h5>brand is: ${products.brand}</h5>
-    <h4>Type: ${products.category}</h4>
-    <h4>Price :$ ${products.price}</h4>
+    <h1>${product.title}</h1>
+    <h5>brand is: ${product.brand}</h5>
+    <h4>Type: ${product.category}</h4>
+    <h4>Price :$ ${product.price}</h4>
     <div class= "rate">
     <p>The Rating is : </p>
     <span><i class="fa-solid fa-star"></i></span>
-    <h5>${products.rating}/5</h5>
+    <h5>${product.rating}/5</h5>
     </div>
-    <h6><span>descripton of product:</span>  ${products.description}</h6>
+    <h6><span>descripton of product:</span>  ${product.description}</h6>
     </div>    
         <div class="product-num">
-            <span onclick="decreaseQuantity('p${products.id}-quantity')"><i class="fa-solid fa-minus"></i></span>
-            <input type="number" name="quantity" id="p${products.id}-quantity" min="1" max="${products.stock}" value="1" readonly>
-            <span onclick="increaseQuantity('p${products.id}-quantity')"><i class="fa-solid fa-plus"></i></span>
+            <span onclick="decreaseQuantity('p${product.id}-quantity')"><i class="fa-solid fa-minus"></i></span>
+            <input type="number" name="quantity" id="p${product.id}-quantity" min="1" max="${product.stock}" value="1" readonly>
+            <span onclick="increaseQuantity('p${product.id}-quantity')"><i class="fa-solid fa-plus"></i></span>
         </div>
         
         <div class="add-tocart">
             <button class="btn1"><a href="index.html">Back to Home </a></button>
-            <button class="btn2" onclick="${token ? `addToCart(${products.id})` : `alert('please sign in!');`}">Buy Now</button>
-            <button class="btn3" onclick="${token ? `addToFavorite(${products.id})` : `alert('please sign in!');`}">Add to Favorite</button>
+            <button class="btn2" onclick="${token ? `addToCart(${product.id})` : `alert('please sign in!');`}">Buy Now</button>
+            <button class="btn3" onclick="${token ? `addToFavorite(${product.id})` : `alert('please sign in!');`}">Add to Favorite</button>
         </div>
       
     </div>
@@ -103,81 +105,3 @@ btn2.addEventListener("click",()=>{
 
 getData()
 let singleImag = document.querySelector(".sing-img")
-
-//  cart =JSON.parse(localStorage.getItem("prodData")) || []
-//let cart = JSON.parse(localStorage.getItem("prodData")) || []
-
-// function minus(id){
-//     // let search = products.map()
-//     selctedid = id
-//     let search = cart.find((x)=> x.id === selctedid)
-
-//     if(search.item === 0){
-//         return
-
-//     }else{
-//         search.item -=1
-//     }
-//     // console.log(cart);
-//     localStorage.setItem("prodData",JSON.stringify(cart))
-
-//     update(selctedid)
-    
-// }
-
-// function Plus (id){
-//     selectedid = id
-//     let search = cart.find((x)=> x.id === selectedid)
-    
-//     if (search === undefined){
-//         cart.push({
-//             id : selectedid,
-//             item :1
-//         })
-//     }else{
-//         search.item +=1
-//     }
-//     localStorage.setItem("prodData",JSON.stringify(cart))
-//     // console.log(cart);
-//     update(selectedid)
-
-// }
-
-// function update (id){
-//     let search = cart.find((x)=>x.id === id)
-//     document.getElementById(id).innerHTML = search.item    
-
-//     total(id)
-// }
-
-// function total(id){
-//     selectedid = id
-
-//     let Num = document.querySelector(".num")
-//     Num.innerHTML = cart.map((x)=>x.item).reduce((x,y)=>x+y,0)
-// }
-
-// const side = document.getElementById('sidebar')
-
-// function openSideBar (){
-//     side.style.right = '0';
-// }
-
-// function closeSidebar() {
-//     side.style.right = '-350px';
-// }
-
-
-
-/** 
-const response = [{id:432,name:"Iphone"},{id:4332,name:"LAPTOP"}]
-
-
-localStorage = 4332
-ID =4332
-
-products[id]
-
-
-
-*/
