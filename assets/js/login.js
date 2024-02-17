@@ -5,6 +5,7 @@ let passwordElement = document.getElementById('password');
 let errorMessage = document.getElementById('error-message');
 let [errorContainer] = document.getElementsByClassName('error-container')
 
+let eyeIcon = document.getElementById('eye-icon');
 
 let token = localStorage.getItem('token');
 if(token){
@@ -42,8 +43,7 @@ usernameElement.addEventListener("blur", function (e) {
         setSuccess(e.target);
     }
     else {
-        let message = "username can't be blank";
-        setError(e.target, message);  
+        setError(e.target);  
     }
 });
 passwordElement.addEventListener("blur", function (e) {
@@ -51,8 +51,7 @@ passwordElement.addEventListener("blur", function (e) {
         setSuccess(e.target);
     }
     else {
-        let message = "password can't be blank";
-        setError(e.target, message); 
+        setError(e.target); 
     }
 });
 
@@ -61,11 +60,10 @@ function setSuccess(element) {
     element.style.borderColor = "green";
     element.nextElementSibling.style.opacity = "0";
 }
-function setError(element, message) {
+function setError(element) {
     let small = element.nextElementSibling;
     element.style.borderColor = "red";
     small.style.opacity = "1";
-    small.innerHTML = message;
 }
 
 
@@ -77,6 +75,7 @@ async function loginAndRedirect(username, password){
             body: JSON.stringify({
             username: username,
             password: password,
+            expiresInMins: 4300, 
             })
         })
         console.log(response);
@@ -88,14 +87,25 @@ async function loginAndRedirect(username, password){
         const { token } = data;
         console.log(token);
         localStorage.setItem('token', token)
-        //redirect
-        location.href='/';
+        location.href='profile.html';
     }
     catch(error){
         console.error(error);
         errorMessage.innerHTML = error.message;
         errorContainer.style.opacity = '1';
+        setTimeout(() => {
+            errorContainer.style.opacity = '0';
+          }, 2000);
+          
     }
 }
+
+
+eyeIcon.addEventListener('click', function(e){
+    let type = passwordElement.type === 'password' ? 'text' : 'password';
+    passwordElement.type = type;
+    this.classList.toggle("fa-eye-slash");
+    this.classList.toggle("fa-eye");
+})
 
 

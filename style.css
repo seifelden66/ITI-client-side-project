@@ -18,7 +18,17 @@
     --gray-color: #ccc;
     --gray-color-dark: #777;
 }
-
+#login{
+    border: var(--dark-400) .2px solid;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: 300ms;
+}
+#login:hover{
+    background: var(--dark-400);
+    color: var(--blue-color);
+    border: none;
+}
 
 * {
     padding: 0;
@@ -271,6 +281,19 @@ img {
     }
 
     .num {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        position: absolute;
+        background-color: red;
+        top: -15px;
+        right: -15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .num2 {
         height: 20px;
         width: 20px;
         border-radius: 100%;

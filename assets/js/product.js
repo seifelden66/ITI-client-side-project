@@ -83,7 +83,6 @@ function createProductsCard() {
                     <button onclick="increaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div>
-                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fas fa-shopping-cart"></i></button>
                     <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>
                 </div>
             </div>

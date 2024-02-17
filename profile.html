@@ -3,22 +3,74 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css">
-        <title>Document</title>
+        <link rel="stylesheet" href="assets/css/profile.css" />
+        <link rel="stylesheet" href="assets/css/product.css">
+        <script src="https://kit.fontawesome.com/1cb4da4ca1.js" crossorigin="anonymous"></script>
+        <title>Profile</title>
     </head>
     <body>
-       
-        <table id="table">
-            <thead>
-                <tr>
-                    <th> <img class="profile-pic" src="" alt="profile image" srcset=""></th>
-                </tr>
-            </thead>
-            
-            
-        </table>
+        <div class="container">
+            <div class="aside">
+                <ul>
+                    <div id="close">
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                    <li id="user-greeting">
+                        Hello <span id="user-name"></span>
+                        <div id="email"></div>
+                    </li>
+                    <li id="info-link">
+                        <i class="fa-solid fa-user"></i>
+                        <a href="">Profile</a>
+                    </li>
 
+                    <li id="fav-link">
+                        <i class="fa-solid fa-heart"></i>
+                        <a href="">Favourites</a>
+                    </li>
 
-       <script src="script2.js"></script>
+                    <li>
+                        <i class="fa-solid fa-rectangle-list"></i>
+                        <a href="#">Orders</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-gift"></i>
+                        <a href="#">Vouchers</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <a href="#">Addresses</a>
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-credit-card"></i>
+                        <a href="#">Payments</a>
+                    </li>
+
+                    <li id="signout"><a href="#">Sign out</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <img src="" class="profile-pic" alt="profile picture" />
+                <div class="info">
+                    <h1>Profile Info</h1>
+                    <form id="info-form" action=""></form>
+                </div>
+            </div>
+
+            <div class="fav-section">
+                <div class="favs-container">
+
+                </div>
+            </div>
+            <div id="arrow">
+                <img class="right-arrow" src="assets/images/chevron.png" alt="" />
+            </div>
+        </div>
+
+        <script src="assets/js/profile.js"></script>
     </body>
 </html>

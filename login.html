@@ -3,35 +3,37 @@
     <head>
         <meta charset="UTF-8" />
         <title>Login</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="assets/css/login.css" />
         <script src="https://kit.fontawesome.com/1cb4da4ca1.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="container">
             <form id="form" action="" method="post">
-                <div class="error-container">
-                    <!-- <i class="fa-solid fa-xmark"></i> -->
-                    <!-- <i class="fa-solid fa-triangle-exclamation"></i> -->
-                    <span id="error-message"></span>
-                    <i class="xmark fa-regular fa-circle-xmark"></i>
+                <div class="text">
+                    Customer Login
                 </div>
+                <div class="error-container">
+                    <span id="error-message">message</span>
+                </div>
+               
                 <div class="input-field">
                     <label for="username">username</label>
                     <input type="text" id="username" name="username" />
-                    <small>can't be blank</small>
+                    <small>Username can't be blank</small>
                 </div>
 
                 <div class="input-field">
                     <label for="password">password</label>
+                    <i id="eye-icon" class="fa-regular fa-eye"></i>
                     <input type="password" id="password" name="password" />
-                    <small>username is invalid</small>
+                    <small>Password can't be blank</small>
                 </div>
 
                 <input class="btn" type="submit" value="Login" />
             </form>
 
-           
-           <script src="script1.js"></script>
+           <!-- don't have an account? signup now -->
         </div>
+        <script src="assets/js/login.js"></script>
     </body>
 </html>
