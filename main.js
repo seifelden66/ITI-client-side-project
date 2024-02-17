@@ -9,28 +9,31 @@ let imgs = [
 ]
 let index = 0;
 
-
-btn2.addEventListener("click", () => {
-    if (index < imgs.length - 1) {
-        index++
-        heroImg.src = imgs[index]
-
-    } else {
-        index = 0
-        heroImg.src = imgs[index]
-
-    }
-})
-btn1.addEventListener("click", () => {
-    if (index > 0) {
-        index--
-        heroImg.src = imgs[index]
-    } else {
-        index = imgs.length - 1
-        heroImg.src = imgs[index]
-
-    }
-})
+if(btn2){
+    btn2.addEventListener("click", () => {
+        if (index < imgs.length - 1) {
+            index++
+            heroImg.src = imgs[index]
+    
+        } else {
+            index = 0
+            heroImg.src = imgs[index]
+    
+        }
+    })
+}
+if(btn1){
+    btn1.addEventListener("click", () => {
+        if (index > 0) {
+            index--
+            heroImg.src = imgs[index]
+        } else {
+            index = imgs.length - 1
+            heroImg.src = imgs[index]
+    
+        }
+    })
+}
 
 //============================================================
 //sidebar
@@ -118,7 +121,7 @@ if (token) {
         let product = products.find(prod => prod.id === productId);
         let favoite = JSON.parse(localStorage.getItem('favorite')) || [];
 
-        if (favoite.some(item => item.id == productId)) {
+        if (favoite.some(item => item.id === productId)) {
             alert('Product is already in the cart');
         } else {
             alert('product added successfully!')
