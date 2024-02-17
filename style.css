@@ -161,6 +161,12 @@ img {
 .burger {
     display: none;
 }
+.cc{
+    padding:5px 20px;
+    display: flex;
+    align-items: center;
+    background: var(--dark-500);
+}
 
 .sidebar {
     padding: 30px 10px;

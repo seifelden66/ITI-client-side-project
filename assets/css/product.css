@@ -33,6 +33,18 @@ main{
     width: 90%;
     margin: 30px auto;
 }
+#products h2{
+    width: fit-content;
+    text-align: center;
+    margin: 20px auto 40px;
+    border: solid var(--dark-700);
+    padding: 20px 30px;
+    border-radius: 10px;
+    color: var(--gray-color-dark);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    font-size: 2rem;
+    font-weight: 700;
+}
 .filter{
     display: flex;
     gap: 20px;
@@ -191,7 +203,7 @@ main{
 .pagenation{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin: 60px auto;
 }
 .pagenation .page{
     border-radius: 0;
@@ -219,7 +231,8 @@ main{
     padding: 20px 30px;
     border-radius: 10px;
     color: var(--gray-color-dark);
-    box-shadow: 10px 10px 10px var(--gray-color);
+    /* box-shadow: 10px 10px 10px var(--gray-color); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     font-size: 30px;
     font-weight: 700;
 
