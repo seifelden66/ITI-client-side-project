@@ -12,7 +12,7 @@ body{
     display: flex;
     justify-content: space-between;
     gap: 20px 20px;
-    
+    padding: 100px 0;
     
 }
 
@@ -47,7 +47,6 @@ margin: 20px 30px 0 30px;
     gap: 30px;
     padding: 10px 0;
     position: relative;
-    max-height: 190px;
     margin: 30px
    
     
@@ -111,8 +110,9 @@ margin: 20px 30px 0 30px;
     content: "";
     position: absolute;
     width: 2px;
-    height: 24px;
-    background-color:  rgb(140, 135, 135);
+    height: 30px;
+    background-color: rgb(140, 135, 135);
+    bottom: 5px;
     left: -8px;
 
 }
@@ -122,7 +122,7 @@ margin: 20px 30px 0 30px;
     text-align: right;
     font-size: 20px;
     font-weight: 600;
-    padding: 10px;
+    padding: 10px 20px;
 }
 .cart-list .info{
     margin: 10px;
@@ -142,8 +142,8 @@ margin: 20px 30px 0 30px;
     flex-direction: column;
     background-color: white;
     margin-bottom: 10px;
-    align-items: center;
     border-radius: 10px;
+    text-transform: capitalize;
 }
 .summary > * {
 margin: 10px;
@@ -152,6 +152,14 @@ margin: 10px;
     font-size: 12px;
     color: #1b3a8f;
 }
+
+.summary h4{
+   line-height: 20px;
+}
+
+.summary h4 span.num , .summary h4 span.price{
+    font-size: 25px;
+ }
 .summary button{
     background-color: #1b3a8f;
     color: white;
@@ -196,4 +204,15 @@ padding: 5px;
 .item button{
     background-color: #1b3a8f;
     color: white;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .cart-info{
+        display: none;
+    }
+    .cart-list {
+        width: 100%;
+    }
 }
