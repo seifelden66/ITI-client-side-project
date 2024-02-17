@@ -83,7 +83,8 @@ function createProductsCard() {
                     <button onclick="increaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-plus"></i></button>
                 </div>
                 <div>
-                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>
+                    <button onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <button onclick="${token ? `addToFavorite(${products[i].id})` : `alert('please sign in!');`}"><i class="fa-regular fa-heart"></i></button>
                 </div>
             </div>
         </div>
@@ -245,13 +246,9 @@ function addToCart(id){
     }
     else{
         let cartItems = JSON.parse(cart);
-        console.log(cartItems);
-        let existItem = cartItems.filter(x => x.id == id);
-        if(existItem.length > 0){
-            let existItemIndex = cartItems.indexOf(existItem[0]);
-            if(existItemIndex != undefined && existItemIndex != -1){
-                cartItems[existItemIndex].quantity = +cartItems[existItemIndex].quantity + +quantity;
-            }
+        let existItemIndex = cartItems.findIndex(item => item.id == id);
+        if(existItemIndex != undefined && existItemIndex != -1){
+            cartItems[existItemIndex].quantity = +cartItems[existItemIndex].quantity + +quantity;
         }
         else{
             cartItems.push({"id": id, "quantity": quantity});
