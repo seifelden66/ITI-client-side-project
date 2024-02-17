@@ -1,30 +1,29 @@
 // const token = localStorage.getItem('token');
 const id = localStorage.getItem("ProducID")
 async function getData(){
-    const response = await fetch(`https://dummyjson.com/products`)
+    const response = await fetch(`https://dummyjson.com/products/${id}`)
     let data = await response.json()
-     products = data.products
+     products = data
+     console.log(products);
     singleProduct(products)
-    console.log(products);
 }
 
 
 function singleProduct (products){
 let data =""
 let container = document.querySelector(".container")
-for(let i =0 ; i<products.length ; i++){
     // let search = cart.find((x)=>x.id === products[id-1].id) || []
     data = `
     <div class="product-card">
     
     <div class="single-prod-cont">
-    <a href=""><img class="sing-img" src=${products[id-1].images[0]} alt="" ></a>
+    <a href=""><img class="sing-img" src=${products.images[0]} alt="" ></a>
 
     <div class = "prod-shap"  >
-    <img src=${products[id-1].images[0]} >
-    <img src=${products[id-1].images[1]} >
-    <img src=${products[id-1].images[2]} >
-    <img src=${products[id-1].images[3]} >
+    <img src=${products.images[0]} >
+    <img src=${products.images[1]} >
+    <img src=${products.images[2]} >
+    <img src=${products.images[3]} >
     </div>
 
 
@@ -33,27 +32,27 @@ for(let i =0 ; i<products.length ; i++){
     
     <div class="product-add">
     <div class="single-prod-data">
-    <h1>${products[id-1].title}</h1>
-    <h5>brand is: ${products[id-1].brand}</h5>
-    <h4>Type: ${products[id-1].category}</h4>
-    <h4>Price :$ ${products[id-1].price}</h4>
+    <h1>${products.title}</h1>
+    <h5>brand is: ${products.brand}</h5>
+    <h4>Type: ${products.category}</h4>
+    <h4>Price :$ ${products.price}</h4>
     <div class= "rate">
     <p>The Rating is : </p>
     <span><i class="fa-solid fa-star"></i></span>
-    <h5>${products[id-1].rating}/5</h5>
+    <h5>${products.rating}/5</h5>
     </div>
-    <h6><span>descripton of product:</span>  ${products[id-1].description}</h6>
+    <h6><span>descripton of product:</span>  ${products.description}</h6>
     </div>    
         <div class="product-num">
-            <span onclick="decreaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-minus"></i></span>
-            <input type="number" name="quantity" id="p${products[i].id}-quantity" min="1" max="${products[i].stock}" value="1" readonly>
-            <span onclick="increaseQuantity('p${products[i].id}-quantity')"><i class="fa-solid fa-plus"></i></span>
+            <span onclick="decreaseQuantity('p${products.id}-quantity')"><i class="fa-solid fa-minus"></i></span>
+            <input type="number" name="quantity" id="p${products.id}-quantity" min="1" max="${products.stock}" value="1" readonly>
+            <span onclick="increaseQuantity('p${products.id}-quantity')"><i class="fa-solid fa-plus"></i></span>
         </div>
         
         <div class="add-tocart">
             <button class="btn1"><a href="index.html">Back to Home </a></button>
-            <button class="btn2" onclick="${token ? `addToCart(${products[i].id})` : `alert('please sign in!');`}">Buy Now</button>
-            <button class="btn3" onclick="${token ? `addToFavorite(${products[i].id})` : `alert('please sign in!');`}">Add to Favorite</button>
+            <button class="btn2" onclick="${token ? `addToCart(${products.id})` : `alert('please sign in!');`}">Buy Now</button>
+            <button class="btn3" onclick="${token ? `addToFavorite(${products.id})` : `alert('please sign in!');`}">Add to Favorite</button>
         </div>
       
     </div>
@@ -63,7 +62,7 @@ for(let i =0 ; i<products.length ; i++){
 
 
 
-}
+
 
 container.innerHTML = data
 let prodShap = document.querySelector(".prod-shap")
