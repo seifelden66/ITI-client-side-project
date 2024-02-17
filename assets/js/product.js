@@ -217,15 +217,45 @@ function search() {
         });
     }
 }
+// let CardArr =[]
 function increaseQuantity(id){
+    // let selectedID = id
+    // let search = CardArr.find((x)=>x.id === selectedID)
     let input = document.querySelector(`#p${id}-quantity`);
-    if(input.value < input.max)
-    input.value++;
+    // if(input.value < input.max && search === undefined){
+    //     CardArr.push({
+    //         id : selectedID,
+    //         item : 1
+    //     })
+    // }else{
+    //         search.item +=1
+    // }
+    // console.log(CardArr);
+    if(input.value < input.max){
+
+        input.value++;
+    }
+    // localStorage.setItem("prodNum", JSON.stringify(CardArr)) || []
 }
 function decreaseQuantity(id){
+    // let search = CardArr.find((x)=>x.id === id)
     let input = document.querySelector(`#p${id}-quantity`);
-    if(input.value > input.min)
-    input.value--;
+    // if(input.value > input.min && search.item === 0 ){
+    //     return
+    // }else{
+    //     search.item -=1
+        
+    // }
+
+
+
+    // console.log(CardArr);
+    if(input.value > input.min){
+
+        input.value--;
+    }
+    // localStorage.setItem("prodNum", JSON.stringify(CardArr)) || []
+
 }
 function listView(){
     let cards = document.querySelectorAll(".card");
