@@ -9,6 +9,7 @@ function decreaseQuantity(id){
     input.value--;
 }
 function addToCart(id){
+    let product = products.find (prod => prod.id === id)
     let cart = localStorage.getItem('cart');
     let quantity = document.querySelector(`#p${product.id}-quantity`).value;
     if(!cart){
