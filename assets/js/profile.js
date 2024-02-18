@@ -1,9 +1,9 @@
 let formElement = document.getElementById("info-form");
-let imgElement = document.getElementsByTagName("img")[0];
+let imgElement = document.getElementsByClassName('profile-pic')[0];
 let userNameElement = document.getElementById("user-name");
 let emailElement = document.getElementById("email");
-let token = localStorage.getItem("token");
-let userData = JSON.parse(localStorage.getItem("userData"));
+// let token = localStorage.getItem("token");
+// let userData = JSON.parse(localStorage.getItem("userData"));
 
 let favLinkElement = document.getElementById("fav-link");
 let infoLinkElement = document.getElementById("info-link");
@@ -97,7 +97,7 @@ infoLinkElement.addEventListener("click", function (e) {
 
 if (favourites) {
     let favsContainer = document.getElementsByClassName("favs-container")[0];
-    
+
     let favouriteCards = "";
     for (let i = 0; i < favourites.length; i++) {
         let {id, images, title, description, rating, price} = favourites[i]
