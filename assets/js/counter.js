@@ -14,6 +14,7 @@ function addToCart(id){
     let quantity = document.querySelector(`#p${product.id}-quantity`).value;
     if(!cart){
         localStorage.setItem("cart",`[{"product": ${JSON.stringify(product)}, "quantity": ${quantity}}]`)
+        
     }
     else{
         let cartItems = JSON.parse(cart);
@@ -22,7 +23,7 @@ function addToCart(id){
             cartItems[existItemIndex].quantity = +cartItems[existItemIndex].quantity + +quantity;
         }
         else{
-            cartItems.push({"product": JSON.stringify(product), "quantity": quantity});
+            cartItems.push({"product": product, "quantity": quantity});
         }
         localStorage.setItem("cart",JSON.stringify(cartItems));
     }

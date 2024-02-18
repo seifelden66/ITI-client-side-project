@@ -29,36 +29,47 @@
                 <h1>LOGO</h1>
                 <div class="search">
                     <input type="text" placeholder="Search name" name="search" id="search">
-                    <button onclick="search()"><i class="fas fa-search"></i></button>
+                    <button onclick="search()" id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
             </div>
 
             <div class="pages">
                 <a href="index.html">Home</a>
-
-                <a href="#">About Us</a>
-                <a href="#">Contact US</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                
                 <div class="cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="num"></div>
+                    <i class="fa-regular fa-heart"></i>
+                    <div class="num" id="cartLen"></div>
                 </div>
-        
+                <div class="cart">
+                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    
+                    <div class="num2" id="cartLen2"></div>
+                </div>
                 <div class="dropdown" id="isLoged">
                     <div class="user" id="userImage">
-                        
+
                     </div>
                     <div class="dropdown-content" id="drpdwn">
 
                     </div>
                 </div>
+                <div id="login"></div>
+            </div>
+            <div class="burger">
+                <i class="fa-solid fa-bars" id="toggle" onclick="openSideBar()"></i>
             </div>
         </div>
     </div> -->
 
+
     <div class="head2">
         <div class="cont">
             <div class="head2L">
-                <h1>LOGO</h1>
+                <div class="logo">
+                    <img src="imgs/logo.png" alt="">
+                </div>
                 <div class="search">
                     <input type="text" placeholder="Search name" name="search" id="search">
                     <button onclick="search()" id="search-btn"><i class="fas fa-search"></i></button>
@@ -72,7 +83,7 @@
                 
                 <div class="cart">
                     <i class="fa-regular fa-heart"></i>
-                    <div class="num" id="cartLen"></div>
+                    <div class="num" id="cartLen">2</div>
                 </div>
                 <div class="cart">
                     <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -184,6 +195,7 @@
 
 
     </footer>
+<script src="main.js"></script>
 <script src="custom.js"></script>
     </body>
     </html>
