@@ -67,7 +67,7 @@ function createProductsCard() {
         cards += `
         <div class="card">
             <a onclick="saveId(${products[i].id})" href="Single-Prod.html">
-                <img src="${products[i].images[0]}">
+                <img id =${products[i].id} src="${products[i].images[0]}">
                 <div>
                     <h3>${products[i].title}</h3>
                     <p>${products[i].description}</p>
