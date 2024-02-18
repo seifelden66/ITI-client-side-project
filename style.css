@@ -117,17 +117,10 @@ img {
 .head2L {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
 }
 
-.Shopy{
-    color: var(--light-white);
-}
-.O{
-    color: #F3BD16;
-    padding: 0px 3px ;
-    font-size: 33px;    
-}
+
 
 .head2>.cont {
     display: flex;
@@ -136,7 +129,6 @@ img {
 
     .search{
         width: 45vw;
-        min-width: 180px;
         order: 2;
     }
     .search input{
@@ -146,7 +138,7 @@ img {
         background-color: var(--white-color);
         border: 0;
         width: 40%;
-        min-width: 150px;
+        /* min-width: 150px; */
         padding: 10px 8px;
         outline: none;
     }
@@ -168,6 +160,7 @@ img {
         gap: 15px;
     }
 }
+
 
 .burger {
     display: none;
