@@ -29,7 +29,7 @@ function displayItems(){
          <img src="${arr_cart[i].product.images[0]}"> 
         </div>
          <div class="details">
-             <h4>  ${arr_cart[i].product.description} ...
+             <h4>  ${arr_cart[i].product.description}
              </h4>
                  <span class="Stock">In Stock ${arr_cart[i].product.stock} available</span>
                  <div class="size"> 
@@ -61,7 +61,7 @@ function displayItems(){
                  </div>
          </div>
          <div class="price">
-             <span> ${arr_cart[i].product.price} </span><span> $</span>
+             <span> ${arr_cart[i].product.price} </span><span> EGP</span>
          </div>
      </div>`;
         requests.innerHTML = temp;
@@ -79,11 +79,16 @@ function displayItems(){
  select = document.querySelectorAll('select')
 function delete_item(index)
 {
+
     var deletedItem = arr_cart.splice(index.value, 1)
     localStorage.setItem("cart" , JSON.stringify(arr_cart))
     sum = 0
     displayItems()
     cart_display()
+    if(index.value == 0)
+    {
+        window.location.reload();
+    }
 }
 
 function cart_display(){
@@ -96,7 +101,7 @@ function cart_display(){
     total_price_for_item =  arr_cart[i].quantity * arr_cart[i].product.price
     total_price_for_item = parseInt(total_price_for_item);
       total_price_for_item_container  += total_price_for_item
-  document.querySelector('.summary .sub-total span.num').innerHTML = arr_cart.length
+  document.querySelector('.summary .sub-total span.num').innerHTML = arr_cart.length 
 
   total_num_for_item =  arr_cart[i].quantity
   total_num_for_item = parseInt(total_num_for_item);
@@ -116,7 +121,7 @@ function update_item(index)
     let value_index = index.getAttribute('target'); //the index of changed value
     arr_cart[value_index].quantity = value    
     cart_display()
-    }
+}
 
 
 function getFav() {
@@ -125,17 +130,3 @@ function getFav() {
             document.querySelector('.cart .num').innerHTML = arr_fav.length
           } 
           getFav()
-
-
-//           function changeInput(){
-
-// const inputElement = document.createElement("input");
-// inputElement.setAttribute("type", "text");
-
-// // Set initial value for the input from the selected option (if any)
-// inputElement.value = select.value;
-
-// // Replace select with input
-// select.parentNode.replaceChild(inputElement, select);
-//           }
-//           changeInput()
