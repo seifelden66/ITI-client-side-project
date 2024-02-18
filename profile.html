@@ -3,12 +3,64 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="assets/css/profile.css" />
         <link rel="stylesheet" href="assets/css/product.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/css/profile.css" />
         <script src="https://kit.fontawesome.com/1cb4da4ca1.js" crossorigin="anonymous"></script>
         <title>Profile</title>
     </head>
     <body>
+        <div class="head2">
+            <div class="cont">
+                <div class="head2L">
+                    <div class="logo">
+                        <img src="imgs/logo.png" alt="">
+                    </div>
+                    <div class="search">
+                        <input type="text" placeholder="Search name" name="search" id="search">
+                        <button onclick="search()" id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+    
+                <div class="pages">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <div class="cart">
+                        <i class="fa-regular fa-heart"></i>
+                        <div class="num" id="cartLen"></div>
+                    </div>
+                    <div class="cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="num2" id="cartLen2"></div>
+                    </div>
+                    <div class="dropdown" id="isLoged">
+                        <div class="user" id="userImage">
+    
+                        </div>
+                        <div class="dropdown-content" id="drpdwn">
+    
+                        </div>
+                    </div>
+                    <div id="login"></div>
+                </div>
+                <div class="burger">
+                    <i class="fa-solid fa-bars" id="toggle" onclick="openSideBar()"></i>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar" id='sidebar'>
+            <div onclick="closeSidebar()" class="close">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </div>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+
+
         <div class="container">
             <div class="aside">
                 <ul>
@@ -72,6 +124,7 @@
             </div>
         </div>
 
+        <script src="main.js"></script>
         <script src="assets/js/profile.js"></script>
     </body>
 </html>

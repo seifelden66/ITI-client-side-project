@@ -11,13 +11,14 @@
 body {
     display: flex;
     justify-content: center;
-    padding: 50px;
+    padding: 0px;
 }
 a {
     color: inherit;
     text-decoration: inherit;
 }
 .container {
+    margin-top: 110px;
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -164,6 +165,7 @@ h1 {
         grid-template-columns: auto;
     }
     .container {
+        margin-top: 70px;
         width: 100%;
         height: fit-content;
     }
@@ -199,6 +201,7 @@ h1 {
         padding: 0;
     }
     .container {
+        margin-top: 70px;
         width: 100%;
     }
     .info-section,
