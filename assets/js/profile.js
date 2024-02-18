@@ -2,129 +2,115 @@ let formElement = document.getElementById("info-form");
 let imgElement = document.getElementsByTagName("img")[0];
 let userNameElement = document.getElementById("user-name");
 let emailElement = document.getElementById("email");
-let favSection = document.getElementsByClassName("fav-section")[0];
 let token = localStorage.getItem("token");
+let userData = JSON.parse(localStorage.getItem("userData"));
+
+let favLinkElement = document.getElementById("fav-link");
+let infoLinkElement = document.getElementById("info-link");
+let favSection = document.getElementsByClassName("fav-section")[0];
+let infoSection = document.getElementsByClassName("info-section")[0];
+
+let favourites = JSON.parse(localStorage.getItem("favorite"));
+
+
 if (!token) {
     location.href = "login.html";
 }
 
-login();
-async function login(username, password) {
-    try {
-        const response = await fetch("https://dummyjson.com/user/me", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        console.log(response);
-        const data = await response.json();
-        console.log(data);
-        if (!response.ok) {
-            throw new Error(data.message);
-        }
+if (userData) {
+    let { gender } = userData;
+    renderUserInfo(userData);
+    renderGender(gender);
+}
 
-        ({ firstName, lastName, username, email, gender, age, phone } = data);
-        console.log(gender);
-
-        userNameElement.innerText = firstName;
-        emailElement.innerText = email;
-        imgElement.src = data.image;
-        let html = `
-            <div class="input-field">
-                <label for="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" readonly value="${firstName}">
-            </div>           
-            <div class="input-field">
-                <label for="lastName">Last Name</label>
-                <input type="text" name="lastName" id="lastName" readonly value="${lastName}">
-            </div>           
-            <div class="input-field">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" readonly value="${username}">
-            </div>           
-            <div class="input-field">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" readonly value="${email}">
-            </div>           
-            <div class="input-field">
-                <label for="age">Age</label>
-                <input type="text" name="age" id="age" readonly value="${age}">
-            </div>           
-            <div class="input-field">
-                <label for="phone">Phone</label>
-                <input type="text" name="phone" id="phone" readonly value="${phone}">
-            </div> 
-
-            <div class="input-field">
-                <span>Gender</span>
-                <div class="genders">
-                    <div class="male">
-                        <i class="fa-solid fa-person"></i>
-                        <span>Male</span>
-                    </div>
-                    <div class="female">
-                        <i class="fa-solid fa-person-dress"></i>
-                        <span>Female</span>
-                    </div>
+function renderUserInfo(userData) {
+    let { firstName, lastName, username, email, image, age, phone } = userData;
+    userNameElement.innerText = firstName;
+    emailElement.innerText = email;
+    imgElement.src = image;
+    let html = `
+        <div class="input-field">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" readonly value="${firstName}">
+        </div>           
+        <div class="input-field">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" readonly value="${lastName}">
+        </div>           
+        <div class="input-field">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" readonly value="${username}">
+        </div>           
+        <div class="input-field">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" readonly value="${email}">
+        </div>           
+        <div class="input-field">
+            <label for="age">Age</label>
+            <input type="text" name="age" id="age" readonly value="${age}">
+        </div>           
+        <div class="input-field">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" readonly value="${phone}">
+        </div> 
+    
+        <div class="input-field">
+            <span>Gender</span>
+            <div class="genders">
+                <div class="male">
+                    <i class="fa-solid fa-person"></i>
+                    <span>Male</span>
                 </div>
-            </div>        
-        `;
-        formElement.insertAdjacentHTML("beforeend", html);
+                <div class="female">
+                    <i class="fa-solid fa-person-dress"></i>
+                    <span>Female</span>
+                </div>
+            </div>
+        </div>        
+    `;
+    formElement.insertAdjacentHTML("beforeend", html);
+}
 
-        let [female] = document.getElementsByClassName("female");
-        let [male] = document.getElementsByClassName("male");
-        if (gender === "male") {
-            male.style.backgroundColor = "#F4CE14";
-        } else {
-            console.log(female);
-            female.style.backgroundColor = "#F4CE14";
-        }
-    } catch (error) {
-        console.error(error);
-        localStorage.removeItem('token');
-        location.href = 'login.html';
+function renderGender(gender) {
+    let [female] = document.getElementsByClassName("female");
+    let [male] = document.getElementsByClassName("male");
+    if (gender === "male") {
+        male.style.backgroundColor = "#F4CE14";
+    } else {
+        female.style.backgroundColor = "#F4CE14";
     }
 }
 
 
-
-let favLinkElement = document.getElementById("fav-link");
-let infoLinkElement = document.getElementById("info-link");
-
-let contentElement = document.getElementsByClassName("content")[0];
-
 favLinkElement.addEventListener("click", function (e) {
     e.preventDefault();
-    console.log("hello");
-    contentElement.style.display = "none";
+    infoSection.style.display = "none";
     favSection.style.display = "block";
 });
 
 infoLinkElement.addEventListener("click", function (e) {
     e.preventDefault();
-    console.log("hello");
-    contentElement.style.display = "block";
+    infoSection.style.display = "block";
     favSection.style.display = "none";
 });
 
-if(localStorage.getItem('cart')){
-    let favsContainer = document.getElementsByClassName('favs-container')[0];
-    console.log('hello2222');
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(cart)
-    let cards = "";
-    for(let i = 0; i < cart.length; i++){
-        cards += `
+
+if (favourites) {
+    let favsContainer = document.getElementsByClassName("favs-container")[0];
+    
+    let favouriteCards = "";
+    for (let i = 0; i < favourites.length; i++) {
+        let {id, images, title, description, rating, price} = favourites[i]
+        favouriteCards += `
             <div class="card">
-                <a onclick="saveId(${cart[i].id})" href="Single-Prod.html">
-                    <img src="${cart[i].images[0]}">
+                <a onclick="saveId(${id})" href="Single-Prod.html">
+                    <img src="${images[0]}">
                     <div>
-                        <h3>${cart[i].title}</h3>
-                        <p>${cart[i].description}</p>
+                        <h3>${title}</h3>
+                        <p>${description}</p>
                         <div class="card-footer">
-                            <div class="rate">${cart[i].rating}</div>
-                            <span>$ ${cart[i].price}</span>
+                            <div class="rate">${rating}</div>
+                            <span>$ ${price}</span>
                         </div>
                     </div>
                 </a>
@@ -132,12 +118,14 @@ if(localStorage.getItem('cart')){
         `;
     }
 
+    favsContainer.insertAdjacentHTML("beforeend", favouriteCards);
+}
 
-    favsContainer.insertAdjacentHTML('beforeend', cards);
-}
+
 function saveId(id) {
-    localStorage.setItem("ProducID", JSON.stringify(id))
+    localStorage.setItem("ProducID", JSON.stringify(id));
 }
+
 
 
 let signoutElement = document.getElementById("signout");
@@ -160,5 +148,3 @@ close.addEventListener("click", function (e) {
     sideBar.style.visibility = "hidden";
     sideBar.style.left = "-300px";
 });
-
-

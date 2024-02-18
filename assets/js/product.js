@@ -67,7 +67,7 @@ function createProductsCard() {
         cards += `
         <div class="card">
             <a onclick="saveId(${products[i].id})" href="Single-Prod.html">
-                <img src="${products[i].images[0]}">
+                <img id =${products[i].id} src="${products[i].images[0]}">
                 <div>
                     <h3>${products[i].title}</h3>
                     <p>${products[i].description}</p>
@@ -190,10 +190,10 @@ function createProductsCard() {
                 items:1
             },
             600:{
-                items:3
+                items:2
             },
             1000:{
-                items:4
+                items:3
             }
         }
     })
@@ -227,6 +227,7 @@ function search() {
         });
     }
 }
+
 function listView(){
     let cards = document.querySelectorAll(".card");
     for(let i = 0; i < cards.length; i++){
