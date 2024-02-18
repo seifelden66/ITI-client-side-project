@@ -11,8 +11,11 @@ function getCart() {
         for(let i = 0 ; i < arr_cart.length ; i++){
         sum_for_card += +arr_cart[i].quantity
         document.querySelector('.cart .num2').innerHTML = sum_for_card
+        total_num_for_item =  arr_cart[i].quantity
+        total_num_for_item = parseInt(total_num_for_item);
+        total_num_for_item_container  += total_num_for_item
+        document.querySelector('.total span.num').innerHTML = total_num_for_item_container 
     }
-    cart_display()
 }
 getCart()
 displayItems()
@@ -51,7 +54,9 @@ function displayItems(){
                      <option value="8">8</option>
                      <option value="9">9</option>
                      <option value="10">10</option>
+                     
                  </select>
+                 
                  <button  onclick="delete_item(this)" value="${i}">delete</button>
                  </div>
          </div>
@@ -68,10 +73,9 @@ function displayItems(){
             total_price_for_item_container  += total_price_for_item
         document.querySelector('.summary .total span.price').innerHTML = total_price_for_item_container 
         document.getElementById('product-price').innerHTML = total_price_for_item_container
-
-        // cart_display()
     }
 }
+
  select = document.querySelectorAll('select')
 function delete_item(index)
 {
@@ -96,17 +100,14 @@ function cart_display(){
 
   total_num_for_item =  arr_cart[i].quantity
   total_num_for_item = parseInt(total_num_for_item);
-//   alert(total_num_for_item)
   total_num_for_item_container  += total_num_for_item
   document.querySelector('.total span.num').innerHTML = total_num_for_item_container 
   document.querySelector('.total span.price').innerHTML = total_price_for_item_container 
-//   alert(total_price_for_item_container)
   document.getElementById('product-price').innerHTML = total_price_for_item_container
     localStorage.setItem("cart" , JSON.stringify(arr_cart))
     }
     total_price_for_item_container = 0
     total_num_for_item_container = 0
-    
 }
 
 function update_item(index)
@@ -118,19 +119,23 @@ function update_item(index)
     }
 
 
-    
-
-// fav
-
 function getFav() {
      arr_fav = JSON.parse(localStorage.getItem('favorite'));  
 
-            // alert(arr_fav.length)
             document.querySelector('.cart .num').innerHTML = arr_fav.length
           } 
           getFav()
 
 
+//           function changeInput(){
 
-//  kminchelle
-// 0lelplR
+// const inputElement = document.createElement("input");
+// inputElement.setAttribute("type", "text");
+
+// // Set initial value for the input from the selected option (if any)
+// inputElement.value = select.value;
+
+// // Replace select with input
+// select.parentNode.replaceChild(inputElement, select);
+//           }
+//           changeInput()
