@@ -150,7 +150,7 @@ margin: 10px;
 }
 .summary span{
     font-size: 12px;
-    color: #1b3a8f;
+    color: #42464f;
 }
 
 .summary h4{
@@ -161,7 +161,7 @@ margin: 10px;
     font-size: 25px;
  }
 .summary button{
-    background-color: #1b3a8f;
+    background-color: #42464f;
     color: white;
 }
 .related{
