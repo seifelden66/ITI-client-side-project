@@ -6,7 +6,6 @@ async function getData(){
     let data = await response.json()
      product = data
      products.push (product)
-     console.log(products);
     singleProduct(product)
 }
 
