@@ -65,7 +65,7 @@ a {
     color: #f4ce14;
 }
 
-.content {
+.info-section {
     grid-column: 2/3;
     background-color: #fff;
     padding: 50px;
@@ -146,7 +146,10 @@ h1 {
 
 .favs-container{
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 60px;
 }
 
 @media screen and (max-width: 767px) {
@@ -167,7 +170,7 @@ h1 {
     body {
         padding: 0;
     }
-    .content,
+    .info-section,
     .fav-section {
         grid-column: 1/3;
     }
@@ -198,7 +201,7 @@ h1 {
     .container {
         width: 100%;
     }
-    .content,
+    .info-section,
     .fav-section {
         grid-column: 1/3;
     }

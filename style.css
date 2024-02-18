@@ -35,7 +35,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+.logo{
+    width: 150px;
+}
 .hero-sec {
     padding-top: 30px;
     margin: 0 auto;
