@@ -1,0 +1,218 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.cart-body{
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px 20px;
+    padding: 100px 0;
+    
+}
+
+.cart-list{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.cart-list .header{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+position: relative;
+min-height:100px;
+margin: 20px 30px 0 30px;
+
+
+}
+
+.cart-list .header::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    bottom: 0;
+}
+.cart-list .request{
+    display: flex;
+    gap: 30px;
+    padding: 10px 0;
+    position: relative;
+    margin: 30px
+   
+    
+}
+.cart-list .request::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    bottom: 0;
+}
+.cart-list .request .img{
+    width: 25%;
+}
+.cart-list .request .img img{
+    width: 100%;
+}
+.cart-list .request .details{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    gap:10px;
+
+}
+.cart-list .request .details .Stock{
+    color: green;
+    font-size: 12px;
+}
+.size span:first-of-type{
+    font-weight: bold;
+}
+.cart-list .request .price{
+    width: 20%;
+    padding-top: 15px;
+    text-align: right;
+    font-weight: bold;
+    
+}
+
+
+.action select{
+    background-color: rgb(241, 233, 233);
+    width: 80px;
+    height: 25px;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+
+.action > *{
+    margin-right: 10px;
+    position: relative;
+}
+.action > a{
+    font-size: 12px;
+    color: #1b3a8f;
+    text-transform: capitalize;
+}
+.action > *::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background-color: rgb(140, 135, 135);
+    bottom: 5px;
+    left: -8px;
+
+}
+
+#total{
+    height: 60px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+.cart-list .info{
+    margin: 10px;
+}
+
+.cart-list .info span{
+}
+.cart-info{
+    width: 20%;
+    /* flex-shrink: 0; */
+}
+
+.summary
+{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+.summary > * {
+margin: 10px;
+}
+.summary span{
+    font-size: 12px;
+    color: #0e1217;
+}
+
+.summary h4{
+   line-height: 20px;
+}
+
+.summary h4 span.num , .summary h4 span.price{
+    font-size: 20px;
+ }
+.summary button{
+    background-color: #0e1217;
+    color: white;
+}
+.related{
+    background-color: white;
+    border-radius: 10px;
+}
+.item {
+display: flex;
+
+position: relative;
+margin: 10px;
+}
+
+.item::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    bottom: 0;
+}
+
+.item .description{
+    padding: 15px;
+    DISPLAY: flex;
+    flex-direction: column;
+}
+
+.item .img{
+    width: 30%;
+    height: 100%;
+    align-self: center;
+    margin: 10px;
+}
+
+.item .description > * {
+padding: 5px;
+}
+
+.item button{
+    background-color: #1b3a8f;
+    color: white;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .cart-info{
+        display: none;
+    }
+    .cart-list {
+        width: 100%;
+    }
+}
+
+.head2{
+    top: 0;
+}

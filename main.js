@@ -151,7 +151,7 @@ if (token) {
     function increaseCartItemQuantity(productId) {
         let product = products.find(prod => prod.id === productId);
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let existingItem = cart.find(item => item.id === productId);
+        let existingItem = cart.find(item => item.product.id === productId);
         if (existingItem) {
             existingItem.quantity++;
         } else {
@@ -165,7 +165,7 @@ if (token) {
 
     function decreaseCartItemQuantity(productId) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let itemIndex = cart.findIndex(item => item.id === productId);
+        let itemIndex = cart.findIndex(item => item.product.id === productId);
         if (itemIndex !== -1) {
             let item = cart[itemIndex];
             if (item.quantity > 0 || minQuantity === undefined) {
@@ -182,7 +182,7 @@ if (token) {
 
     function removeFromCartComplete(productId) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let itemIndex = cart.findIndex(item => item.id === productId);
+        let itemIndex = cart.findIndex(item => item.product.id === productId);
 
         if (itemIndex !== -1) {
             cart.splice(itemIndex, 1);
