@@ -65,9 +65,7 @@ const circle = document.querySelector('.num')
 const circle2 = document.querySelector('.num2')
 
 function logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userData');
-    localStorage.removeItem('cart');
+    localStorage.clear();
     location.reload()
 }
 
