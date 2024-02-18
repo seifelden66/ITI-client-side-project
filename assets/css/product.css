@@ -1,30 +1,3 @@
-.search{
-    width: 45vw;
-    min-width: 180px;
-    order: 2;
-}
-.search input{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    color: var(--gray-color-dark);
-    background-color: var(--white-color);
-    border: 0;
-    width: 40%;
-    min-width: 150px;
-    padding: 10px 8px;
-    outline: none;
-}
-.search button{
-    border-radius: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: var(--gray-color-dark);
-    background-color: var(--white-color);
-    border-left: 0;
-    padding: 10px 8px;
-    outline: none;
-    margin-left: -5px;
-}
 .header-title{
     display: flex;
     flex-direction: column;
@@ -45,12 +18,12 @@
     margin-bottom: 20px;
 }
 .header-title p >span{
-    color: var(--orange-color);
+    color: var(--yellow-color);
     /* font-size: 35px; */
 }
 .header-title a{
     padding: 10px 15px;
-    background-color: var(--orange-color);
+    background-color: var(--yellow-color);
     border-radius: 5px;
     color: var(--black-color);
     margin-top: 20px;
@@ -59,6 +32,18 @@
 main{
     width: 90%;
     margin: 30px auto;
+}
+#products h2{
+    width: fit-content;
+    text-align: center;
+    margin: 20px auto 40px;
+    border: solid var(--dark-700);
+    padding: 20px 30px;
+    border-radius: 10px;
+    color: var(--gray-color-dark);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    font-size: 2rem;
+    font-weight: 700;
 }
 .filter{
     display: flex;
@@ -166,7 +151,7 @@ main{
 }
 .card h3{
     font-size: 1.2rem;
-    color: var(--blue-color);
+    color: var(--dark-700);
     margin: 8px 0;
 }
 .card p{
@@ -182,7 +167,7 @@ main{
     font-weight: 600;
 }
 .rate{
-    color: var(--orange-color);
+    color: var(--yellow-color);
 }
 .card-button{
     margin-top: 15px;
@@ -215,8 +200,44 @@ main{
     font-size: 1rem;
     padding: 10px 15px;
 }
+.pagenation{
+    display: flex;
+    justify-content: center;
+    margin: 60px auto;
+}
+.pagenation .page{
+    border-radius: 0;
+    border: 1px solid var(--gray-color);
+}
+.pagenation .control{
+    border-color: var(--dark-700);
+    background-color: var(--dark-700);
+    color: var(--white-color);
+}
 
 /* ======================================================= */
+.cont-carousel{
+    margin:  100px;
+}
+.cont-carousel h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+
+}
+.cont-carousel h2  span{
+
+    border: solid var(--dark-700);
+    padding: 20px 30px;
+    border-radius: 10px;
+    color: var(--gray-color-dark);
+    /* box-shadow: 10px 10px 10px var(--gray-color); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    font-size: 30px;
+    font-weight: 700;
+
+}
+
 .owl-carousel{
     display: flex;
     justify-content: center;
@@ -224,6 +245,8 @@ main{
     background-color: #F7F7F7;
     margin: 70px 0px;
 }
+
+
 .item{
     width: 100%;
     height: 350px;
@@ -247,7 +270,7 @@ main{
 
 .item img{
     height: 200px;
-    /* object-fit: contain; */
+    object-fit: contain;
 }
 
 .star{
@@ -282,20 +305,4 @@ main{
     .right{
         display: none;
     }
-}
-
-@media (max-width:480px) {
-
-    /*===================== Search =====================*/
-
-    .search input{
-        width: 35%;
-        padding: 8px;
-    }
-    .search button{
-        padding: 8px;
-        margin: -8px;
-    }
-
-    /*=================== Search end ===================*/
 }
