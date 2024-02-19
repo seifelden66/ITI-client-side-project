@@ -35,9 +35,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-.logo{
+/* .logo{
     width: 150px;
-}
+} */
 .hero-sec {
     padding-top: 30px;
     margin: 0 auto;
@@ -150,8 +150,8 @@ img {
         background-color: var(--white-color);
         border-left: 0;
         padding: 10px 8px;
-        outline: none;
         margin-left: -5px;
+        outline: none;
     }
 
     .pages {
@@ -160,7 +160,17 @@ img {
         gap: 15px;
     }
 }
-
+@media (max-width:768px) {
+    .head2>.cont {
+        .search{
+            width: 50vw;
+        }
+        .search input{
+            width: 50%;
+        }
+    }
+    
+}
 
 .burger {
     display: none;
