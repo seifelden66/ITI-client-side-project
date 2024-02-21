@@ -52,7 +52,7 @@ function filterByCategory(category){
 }
 
 function createProductsCard() {
-    console.log(products);
+    // console.log(products);
     let cardsContainer = document.querySelector(".cards-container");
     let cards = "";
     let owlTheme = document.querySelector(".carousel-container")
@@ -200,7 +200,7 @@ function createProductsCard() {
 
 }
 function createCategoriesList() {
-    console.log(categories);
+    // console.log(categories);
     let select = document.querySelector("#categories");
     let options = "";
     for(let i = 0; i<categories.length; i++){
@@ -253,7 +253,7 @@ function pagenation(){
         let prev = `<button onclick="prevPage()" class="page control" ${currentPage == 1? "disabled" : ""}><i class="fa-solid fa-angle-left"></i></button>`;
         let next = `<button onclick="nextPage()" class="page control" ${currentPage == pagesNumber? "disabled" : ""}><i class="fa-solid fa-angle-right"></i></button>`;
         pagenationCotainer.innerHTML = prev + pages + next
-        console.log(pagenationCotainer);
+        // console.log(pagenationCotainer);
     }
 }
 function prevPage(){

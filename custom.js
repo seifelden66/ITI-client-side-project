@@ -130,3 +130,21 @@ function getFav() {
             document.querySelector('.cart .num').innerHTML = arr_fav.length
           } 
           getFav()
+
+
+
+
+
+          async function fetchDate(){
+            let response = await fetch('https://dummyjson.com/products/1');
+            let data = await response.json();
+            // return data
+                console.log(data)
+          }
+
+          fetchDate();
+
+
+        //  kminchelle
+       // 0lelplR
+          
